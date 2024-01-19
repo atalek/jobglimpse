@@ -1,5 +1,7 @@
 # Job Board Project
 
+![Landing page](https://res.cloudinary.com/dkofkuquf/image/upload/v1705704467/nuxtshop/syreihou08lt7prdkmic.png)
+
 This project is a Job Board built with **Nuxt 3**, **Tailwind CSS**, **Turso
 SQLite** for the database, **Stripe** for payment integration, and
 **Cloudinary** for image upload.
@@ -40,12 +42,14 @@ SQLite** for the database, **Stripe** for payment integration, and
 - **Cloudinary:** A cloud-based image and video management service for efficient
   handling of uploaded logos.
 
+![Create a job listing ](https://res.cloudinary.com/dkofkuquf/image/upload/v1705704474/nuxtshop/m2npqwo766nsfgnreggl.png)
+
 ## Setup
 
 1. **Clone the repository.**
 
    ```bash
-   git clone https://github.com/your-username/job-board.git
+   git clone https://github.com/Amphei/job-board.git
 
    ```
 
