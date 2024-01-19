@@ -45,14 +45,14 @@ SQLite** for the database, **Stripe** for payment integration, and
 1. **Clone the repository.**
 
    ```bash
-   git clone https://github.com/your-username/job-board-project.git
+   git clone https://github.com/your-username/job-board.git
 
    ```
 
 2. **Navigate to the project directory.**
 
    ```bash
-   cd job-board-project
+   cd job-board
 
    ```
 
