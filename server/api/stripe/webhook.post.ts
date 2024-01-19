@@ -36,28 +36,30 @@ export default defineEventHandler(async event => {
       }
 
       if (isPaid && jobListingInfo) {
-        await db.insert(tables.jobListing).values({
-          title: jobListingInfo.title,
-          location: jobListingInfo.location,
-          tags: jobListingInfo.tags.join(', '),
-          url: jobListingInfo.url,
-          companyName: jobListingInfo.companyName,
-          logoUrl: jobListingInfo.logoUrl,
-          salaryOptions: jobListingInfo.salaryOption
-            ? jobListingInfo.salaryOption
-            : null,
-          salaryMin: jobListingInfo.salaryMin
-            ? parseInt(jobListingInfo.salaryMin)
-            : null,
-          salaryMax: jobListingInfo.salaryMax
-            ? parseInt(jobListingInfo.salaryMax)
-            : null,
-          salary: jobListingInfo.salary
-            ? parseInt(jobListingInfo.salary)
-            : null,
-          salaryPeriod: jobListingInfo.salaryPeriod || null,
-          promoted: jobListingInfo.promoted ? 1 : 0,
-        })
+        await db()
+          .insert(tables.jobListing)
+          .values({
+            title: jobListingInfo.title,
+            location: jobListingInfo.location,
+            tags: jobListingInfo.tags.join(', '),
+            url: jobListingInfo.url,
+            companyName: jobListingInfo.companyName,
+            logoUrl: jobListingInfo.logoUrl,
+            salaryOptions: jobListingInfo.salaryOption
+              ? jobListingInfo.salaryOption
+              : null,
+            salaryMin: jobListingInfo.salaryMin
+              ? parseInt(jobListingInfo.salaryMin)
+              : null,
+            salaryMax: jobListingInfo.salaryMax
+              ? parseInt(jobListingInfo.salaryMax)
+              : null,
+            salary: jobListingInfo.salary
+              ? parseInt(jobListingInfo.salary)
+              : null,
+            salaryPeriod: jobListingInfo.salaryPeriod || null,
+            promoted: jobListingInfo.promoted ? 1 : 0,
+          })
       }
       return 'ok'
     }

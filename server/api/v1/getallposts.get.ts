@@ -3,7 +3,7 @@ import { db } from '~/server/utils/db'
 
 export default defineEventHandler(async event => {
   try {
-    const jobPosts = await db
+    const jobPosts = await db()
       .select()
       .from(tables.jobListing)
       .orderBy(
