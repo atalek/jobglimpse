@@ -454,7 +454,7 @@ if (route.fullPath.includes('?canceled=1')) {
           <h5 class="text-xl font-bold text-gray-800">Amplify Your Reach:</h5>
         </div>
         <p class="text-xl text-gray-700 mb-16">
-          Pay a little extra to skyrocket your post to the top.
+          Pay a little extra to skyrocket your post to the top for 30 days.
         </p>
 
         <h6 class="mt-16 text-2xl underline text-green-600">

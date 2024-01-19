@@ -43,10 +43,12 @@ SQLite** for the database, **Stripe** for payment integration, and
 ## Setup
 
 1. **Clone the repository.**
+
    ```bash
    git clone https://github.com/your-username/job-board-project.git
 
    ```
+
 2. **Navigate to the project directory.**
 
    ```bash
@@ -80,18 +82,22 @@ SQLite** for the database, **Stripe** for payment integration, and
      CLOUDINARY_CLOUD_NAME=your_cloud_name
      CLOUDINARY_API_KEY=your_api_key
      CLOUDINARY_API_SECRET=your_api_secret
+
+     BASE_URL=base_url
      ```
 
 5. **Run the development server.**
+
    ```bash
    npm run dev
 
    ```
+
 6. **Open your browser and visit http://localhost:3000 to view the Job Board.**
 
 ## Live Version
 
-[)
+[https://jobglimpse.pages.dev/](https://jobglimpse.pages.dev/)
 
 ## Author
 
