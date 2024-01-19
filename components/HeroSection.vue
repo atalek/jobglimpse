@@ -3,7 +3,7 @@ import bgImage from '~/assets/images/bg-photo.webp'
 </script>
 
 <template>
-  <div
+  <section
     class="mx-auto px-5 pb-16 md:px-10 bg-img"
     :style="{
       background: `url(${bgImage})`,
@@ -31,5 +31,5 @@ import bgImage from '~/assets/images/bg-photo.webp'
         >
       </div>
     </div>
-  </div>
+  </section>
 </template>

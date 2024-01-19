@@ -150,7 +150,7 @@ if (route.fullPath.includes('?canceled=1')) {
   <main
     class="xl:grid xl:grid-cols-2"
     style="grid-template-columns: 0.6fr 0.4fr">
-    <div class="w-full h-screen overflow-y-scroll lg:px-10 px-5">
+    <section class="w-full h-screen overflow-y-scroll lg:px-10 px-5">
       <div class="text-3xl ml-5 mt-8">
         <NuxtLink to="/">JobGlimpse</NuxtLink>
       </div>
@@ -417,8 +417,8 @@ if (route.fullPath.includes('?canceled=1')) {
           </div>
         </form>
       </div>
-    </div>
-    <div
+    </section>
+    <section
       class="w-full h-screen lg:flex justify-center hidden bg-img"
       :style="{
         background: `url(${bgImage})`,
@@ -465,7 +465,7 @@ if (route.fullPath.includes('?canceled=1')) {
           Find Your Next Hiring Success.
         </h6>
       </div>
-    </div>
+    </section>
   </main>
   <TheFooter />
 </template>

@@ -28,11 +28,11 @@ function tagClicked(value: string) {
 </script>
 
 <template>
-  <div class="max-w-2xl mx-auto my-10 px-2">
+  <section class="max-w-2xl mx-auto my-10 px-2">
     <p v-if="error" class="text-red-600 text-center my-4 text-xl">
       {{ error }}
     </p>
-    <form class="flex items-center justify-center">
+    <div class="flex items-center justify-center">
       <label for="simple-search" class="sr-only">Search</label>
 
       <input
@@ -48,8 +48,8 @@ function tagClicked(value: string) {
         aria-label="Search">
         <Icon name="fa6-solid:magnifying-glass" class="h-6 w-6 text-white" />
       </button>
-    </form>
-  </div>
+    </div>
+  </section>
   <div>
     <Loader v-if="pending" />
   </div>
