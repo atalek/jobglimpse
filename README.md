@@ -34,8 +34,8 @@ SQLite** for the database, **Stripe** for payment integration, and
 - **Tailwind CSS:** A utility-first CSS framework for rapidly building custom
   designs.
 
-- **Turso SQLite:** A lightweight, serverless SQLite database for storing and
-  retrieving job listing data.
+- **Turso SQLite:** A lightweight, SQLite database for storing and retrieving
+  job listing data.
 
 - **Stripe:** A secure and reliable platform for online payments.
 
