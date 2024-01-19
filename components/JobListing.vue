@@ -15,15 +15,18 @@ const emits = defineEmits()
 function calculateTimeDifference(createdAt: string) {
   const difference = moment(createdAt).diff(moment())
 
-  if (difference < 3600000) {
-    const hours = Math.floor(Math.abs(moment.duration(difference).asHours()))
-    return hours === 1 ? '1 hour ago' : `${hours} hours ago`
-  } else if (difference < 86400000) {
-    const days = Math.floor(Math.abs(moment.duration(difference).asDays()))
+  const days = Math.floor(Math.abs(moment.duration(difference).asDays()))
+  const hours = Math.floor(Math.abs(moment.duration(difference).asHours()) % 24)
+
+  if (days >= 1) {
     return days === 1 ? '1 day ago' : `${days} days ago`
+  } else if (hours >= 1) {
+    return hours === 1 ? '1 hour ago' : `${hours} hours ago`
   } else {
-    const months = Math.floor(Math.abs(moment.duration(difference).asMonths()))
-    return months === 1 ? '1 month ago' : `${months} months ago`
+    const minutes = Math.floor(
+      Math.abs(moment.duration(difference).asMinutes()) % 60,
+    )
+    return minutes === 1 ? '1 minute ago' : `${minutes} minutes ago`
   }
 }
 </script>
@@ -97,7 +100,7 @@ function calculateTimeDifference(createdAt: string) {
         >
       </div>
       <div
-        class="flex items-center justify-center mt-2 md:mt-0 md:w-full md:max-w-[90px]">
+        class="flex items-center text-center mt-2 md:mt-0 md:w-full md:max-w-[90px]">
         {{ calculateTimeDifference(jobListing.createdAt) }}
       </div>
       <div

@@ -22,6 +22,7 @@ watch([promoted], () => {
 })
 
 const isOpen = ref(true)
+const isLoading = ref(false)
 
 const salaryOptions = ['Exact Rate', 'Range']
 const periodOptions = ['Monthly', 'Hourly']
@@ -56,6 +57,7 @@ const validationErrors = ref<{ [key: string]: string }>({
 
 async function createJobListing() {
   try {
+    isLoading.value = true
     jobListingSchema.parse(jobListingInfo)
 
     const res = await $fetch('/api/stripe/checkout', {
@@ -72,6 +74,8 @@ async function createJobListing() {
         validationErrors.value[field] = message
       })
     }
+  } finally {
+    isLoading.value = false
   }
 }
 
@@ -156,10 +160,12 @@ if (route.fullPath.includes('?canceled=1')) {
           @submit.prevent="createJobListing">
           <div class="flex justify-between items-center">
             <h2 class="text-2xl mb-8">Let's get started</h2>
+            <Loader v-if="isLoading" class="mb-2" />
             <button
+              :disabled="isLoading"
               @click="clearForm"
               type="button"
-              class="p-2 rounded-md w-24 text-lg bg-black text-white hover:bg-slate-800 text-center">
+              class="p-2 rounded-md w-24 text-lg bg-black text-white hover:bg-slate-800 text-center disabled:bg-slate-500 disabled:cursor-not-allowed">
               Reset
             </button>
           </div>
@@ -170,6 +176,7 @@ if (route.fullPath.includes('?canceled=1')) {
               <span v-show="!jobListingInfo.title" class="text-red-600">*</span>
             </label>
             <input
+              :disabled="isLoading"
               id="job-title"
               name="job-title"
               type="text"
@@ -187,6 +194,7 @@ if (route.fullPath.includes('?canceled=1')) {
               ></label
             >
             <input
+              :disabled="isLoading"
               id="job-location"
               name="job-location"
               type="text"
@@ -205,6 +213,7 @@ if (route.fullPath.includes('?canceled=1')) {
               ></label
             >
             <input
+              :disabled="isLoading"
               id="application-url"
               name="application-url"
               type="text"
@@ -224,6 +233,7 @@ if (route.fullPath.includes('?canceled=1')) {
               ></label
             >
             <VueMultiselect
+              :disabled="isLoading"
               aria-label="Job listing tags"
               v-model="jobListingInfo.tags"
               :options="tagOptions"
@@ -246,6 +256,7 @@ if (route.fullPath.includes('?canceled=1')) {
               ></label
             >
             <input
+              :disabled="isLoading"
               id="company-name"
               name="company-name"
               type="text"
@@ -265,6 +276,7 @@ if (route.fullPath.includes('?canceled=1')) {
                 >
               </label>
               <input
+                :disabled="isLoading"
                 id="company-logo"
                 name="company-logo"
                 type="file"
@@ -294,8 +306,9 @@ if (route.fullPath.includes('?canceled=1')) {
           <div class="flex justify-between my-4 pr-4">
             <h3 class="text-xl font-semibold mt-2">Salary</h3>
             <button
+              :disabled="isLoading"
               type="button"
-              class="p-2 bg-gray-200 rounded-lg"
+              class="p-2 bg-gray-200 rounded-lg disabled:cursor-not-allowed"
               aria-label="Toggle salary options"
               @click="() => (isOpen = !isOpen)">
               <Icon v-if="isOpen" name="fa-solid:chevron-up" />
@@ -307,6 +320,7 @@ if (route.fullPath.includes('?canceled=1')) {
             :class="{ block: isOpen, hidden: !isOpen }">
             <label for="salary-options">Rate</label>
             <select
+              :disabled="isLoading"
               name="salary-options"
               id="salary-options"
               class="max-w-32 p-2.5"
@@ -324,11 +338,13 @@ if (route.fullPath.includes('?canceled=1')) {
                 class="flex w-full"
                 v-show="jobListingInfo.salaryOption === 'Range'">
                 <input
+                  :disabled="isLoading"
                   type="text"
                   placeholder="2000"
                   v-model="jobListingInfo.salaryMin" />
                 <span class="flex items-center mx-1">to</span>
                 <input
+                  :disabled="isLoading"
                   type="text"
                   placeholder="5000"
                   v-model="jobListingInfo.salaryMax" />
@@ -338,13 +354,15 @@ if (route.fullPath.includes('?canceled=1')) {
                 class="flex w-full"
                 v-show="jobListingInfo.salaryOption === 'Exact Rate'">
                 <input
+                  :disabled="isLoading"
                   type="text"
                   placeholder="2000"
                   v-model="jobListingInfo.salary" />
               </div>
-              <div class="flex items-center flex-col mb-4">
+              <div class="flex items-center flex-col mb-5">
                 <label for="salary-period" class="text-sm">Salary period</label>
                 <select
+                  :disabled="isLoading"
                   name="salary-period"
                   id="salary-period"
                   class="w-28 p-2.5 text-center"
@@ -393,7 +411,7 @@ if (route.fullPath.includes('?canceled=1')) {
             <button
               type="submit"
               class="p-4 bg-black text-white font-bold text-lg rounded-md my-4 hover:bg-slate-700 disabled:bg-slate-500 disabled:cursor-not-allowed"
-              :disabled="isButtonDisabled">
+              :disabled="isButtonDisabled || isLoading">
               Post Your Job - €{{ total }}
             </button>
           </div>
@@ -424,21 +442,28 @@ if (route.fullPath.includes('?canceled=1')) {
         </p>
 
         <div class="flex items-center mb-2">
-          <span class="inline-block w-6 h-6 mr-4 text-green-500"
-            ><IconsHandshake
-          /></span>
+          <span class="inline-block w-6 h-6 mr-4"><IconsHandshake /></span>
           <h4 class="text-xl font-bold text-gray-800">Cost-Effective:</h4>
         </div>
         <p class="text-xl text-gray-700 mb-16">
           Reach local talent without breaking the bank.
         </p>
 
-        <h5 class="mt-16 text-2xl underline text-green-600">
+        <div class="flex items-center mb-2">
+          <span class="inline-block w-6 h-6 mr-4"><IconsStar /></span>
+          <h5 class="text-xl font-bold text-gray-800">Amplify Your Reach:</h5>
+        </div>
+        <p class="text-xl text-gray-700 mb-16">
+          Pay a little extra to skyrocket your post to the top.
+        </p>
+
+        <h6 class="mt-16 text-2xl underline text-green-600">
           <span class="inline-block w-6 h-6 mr-4 text-green-600"
             ><IconsCheckmark
           /></span>
+
           Find Your Next Hiring Success.
-        </h5>
+        </h6>
       </div>
     </div>
   </main>

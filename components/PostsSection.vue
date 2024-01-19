@@ -5,8 +5,6 @@ const {
   error,
 } = await useFetch('/api/v1/getallposts')
 
-const searchTerm = ref('')
-
 const filteredJobListings = computed(() => {
   if (!searchTerm.value) {
     return jobListings.value
@@ -21,6 +19,8 @@ const filteredJobListings = computed(() => {
     )
   })
 })
+
+const searchTerm = ref('')
 
 function tagClicked(value: string) {
   searchTerm.value = value
@@ -50,9 +50,10 @@ function tagClicked(value: string) {
       </button>
     </form>
   </div>
-
+  <div>
+    <Loader v-if="pending" />
+  </div>
   <div class="mb-12 md:mb-24" />
-
   <JobListing
     v-for="jobListing in filteredJobListings"
     :jobListing="jobListing"
