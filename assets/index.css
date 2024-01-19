@@ -11,9 +11,10 @@ select,
 input[type='email'],
 input[type='password'],
 input[type='tel'],
-input[type='text'] {
-  @apply block w-full mb-2 rounded-xl;
-  @apply border p-2 border-gray-300 bg-gray-100;
+input[type='text'],
+input[type='number'] {
+  @apply block w-full mb-1 rounded-md;
+  @apply border p-2 border-gray-200;
 }
 input[type='email']:disabled,
 input[type='password']:disabled,
@@ -22,8 +23,14 @@ input[type='text']:disabled {
   @apply bg-gray-300 border-0 cursor-not-allowed text-gray-500;
 }
 label {
-  @apply text-gray-500 text-sm leading-tight;
+  @apply text-gray-800 text-sm leading-tight;
 }
 label + input {
   margin-top: -2px;
+}
+
+.bg-img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

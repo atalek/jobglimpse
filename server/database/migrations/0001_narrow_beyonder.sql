@@ -1,0 +1,1 @@
+ALTER TABLE jobListing ADD `created_at` integer NOT NULL;

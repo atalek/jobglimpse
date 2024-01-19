@@ -4,14 +4,17 @@ const currentYear = new Date().getFullYear()
 
 <template>
   <footer class="border-t-2 py-4">
-    <div class="max-w-7xl mx-auto">
-      <div
-        class="flex md:flex-row flex-col items-center md:justify-between p-2">
-        <div class="text-lg text-slate-600">© {{ currentYear }} JobGlimpse</div>
-        <div class="text-slate-600 md:mt-0 mt-4">github</div>
+    <div class="max-w-7xl mx-auto text-center">
+      <div>
+        <NuxtLink
+          to="https://github.com/Amphei/job-board"
+          target="_blank"
+          class="text-slate-800 md:mt-0 mt-8 text-lg"
+          >© {{ currentYear }} JobGlimpse - Made by Amphei<Icon
+            name="fa6-brands:github"
+            class="ml-1 h-7 w-7"
+        /></NuxtLink>
       </div>
     </div>
   </footer>
 </template>
-
-<style scoped></style>

@@ -1,49 +1,106 @@
 <script lang="ts" setup>
-definePageMeta({
-  layout: false,
-})
+import { ZodError } from 'zod'
+import VueMultiselect from 'vue-multiselect'
+import { jobListingSchema } from '~/data/jobListingSchema'
 import bgImage from '~/assets/images/bg-photo.webp'
+import { tagOptions } from '~/data/tagOptions'
+import { JobListingType } from '~/data/types'
+import { useToast } from 'vue-toastification'
+
+useSeoMeta({
+  title: 'Create a job post - JobGlimpse',
+})
+const toast = useToast()
+const route = useRoute()
 
 const promoted = ref(false)
 const total = ref(5)
 
 watch([promoted], () => {
   total.value = 5 + (promoted.value ? 15 : 0)
+  jobListingInfo.promoted = promoted.value
 })
 
 const isOpen = ref(true)
 
 const salaryOptions = ['Exact Rate', 'Range']
 const periodOptions = ['Monthly', 'Hourly']
+const cookie = useCookie<JobListingType | null>('jobListingCookie')
 
 const jobListingInfo = reactive({
+  title: cookie?.value?.title || '',
+  location: cookie?.value?.location || '',
+  tags: cookie?.value?.tags || ([] as string[]),
+  url: cookie?.value?.url || '',
+  companyName: cookie?.value?.companyName || '',
+  logoUrl: cookie?.value?.logoUrl || '',
+  salaryOption: cookie?.value?.salaryOptions || salaryOptions[0],
+  salaryMin: cookie?.value?.salaryMin || '',
+  salaryMax: cookie?.value?.salaryMax || '',
+  salary: cookie?.value?.salary || '',
+  salaryPeriod: cookie?.value?.salaryPeriod || periodOptions[0],
+  promoted: cookie?.value?.promoted || false,
+})
+
+const validationErrors = ref<{ [key: string]: string }>({
   title: '',
   location: '',
   tags: '',
   url: '',
   companyName: '',
   logoUrl: '',
-  salaryOption: salaryOptions[0],
   salaryMin: '',
   salaryMax: '',
   salary: '',
-  salaryPeriod: periodOptions[0],
-  promoted: promoted.value,
 })
 
 async function createJobListing() {
   try {
-    const res = await $fetch('/api/v1/create', {
-      method: 'POST',
+    jobListingSchema.parse(jobListingInfo)
+
+    const res = await $fetch('/api/stripe/checkout', {
+      method: 'post',
       body: jobListingInfo,
     })
-    if (res) {
-      console.log('fat')
-    }
+    if (res) navigateTo(res, { external: true })
+    validationErrors.value = {}
   } catch (error) {
-    console.log(error)
+    if (error instanceof ZodError) {
+      error.errors.forEach(err => {
+        const field = err.path[0]
+        const message = err.message
+        validationErrors.value[field] = message
+      })
+    }
   }
 }
+
+function clearForm() {
+  jobListingInfo.title = ''
+  jobListingInfo.location = ''
+  jobListingInfo.tags = []
+  jobListingInfo.url = ''
+  jobListingInfo.companyName = ''
+  jobListingInfo.logoUrl = ''
+  jobListingInfo.salaryOption = salaryOptions[0]
+  jobListingInfo.salaryMin = ''
+  jobListingInfo.salaryMax = ''
+  jobListingInfo.salary = ''
+  jobListingInfo.salaryPeriod = periodOptions[0]
+  jobListingInfo.promoted = false
+  cookie.value = null
+}
+
+const isButtonDisabled = computed(() => {
+  return (
+    !jobListingInfo.title ||
+    !jobListingInfo.location ||
+    !jobListingInfo.url ||
+    !jobListingInfo.tags.length ||
+    !jobListingInfo.companyName ||
+    !jobListingInfo.logoUrl
+  )
+})
 
 const config = useRuntimeConfig().public
 
@@ -79,42 +136,73 @@ if (process.client) {
 function openUploadWidget() {
   widget.open()
 }
+
+if (route.fullPath.includes('?canceled=1')) {
+  toast.error('Payment failed 😕')
+}
 </script>
 
 <template>
-  <main class="xl:grid xl:grid-cols-2">
+  <main
+    class="xl:grid xl:grid-cols-2"
+    style="grid-template-columns: 0.6fr 0.4fr">
     <div class="w-full h-screen overflow-y-scroll lg:px-10 px-5">
       <div class="text-3xl ml-5 mt-8">
         <NuxtLink to="/">JobGlimpse</NuxtLink>
       </div>
-
       <div class="flex mx-auto w-full mt-16 px-8">
         <form
           class="w-full mx-auto max-w-2xl"
           @submit.prevent="createJobListing">
-          <h2 class="text-2xl mb-8">Let's get started</h2>
+          <div class="flex justify-between items-center">
+            <h2 class="text-2xl mb-8">Let's get started</h2>
+            <button
+              @click="clearForm"
+              type="button"
+              class="p-2 rounded-md w-24 text-lg bg-black text-white hover:bg-slate-800 text-center">
+              Reset
+            </button>
+          </div>
+
           <div class="flex flex-col gap-2">
-            <label for="job-title">Job title</label>
+            <label for="job-title"
+              >Job title
+              <span v-show="!jobListingInfo.title" class="text-red-600">*</span>
+            </label>
             <input
               id="job-title"
               name="job-title"
               type="text"
               placeholder="Junior Software Engineer"
               v-model="jobListingInfo.title" />
+            <p v-if="validationErrors.title" class="text-red-500">
+              {{ validationErrors.title }}
+            </p>
           </div>
           <div>
-            <label for="job-location">Job location</label>
+            <label for="job-location"
+              >Job location
+              <span v-show="!jobListingInfo.location" class="text-red-600"
+                >*</span
+              ></label
+            >
             <input
               id="job-location"
               name="job-location"
               type="text"
               class="w-full"
-              placeholder="Remote, Office or Hybrid"
+              placeholder="City and/or Remote, Office or Hybrid"
               v-model="jobListingInfo.location" />
+            <p v-if="validationErrors.location" class="text-red-500">
+              {{ validationErrors.location }}
+            </p>
           </div>
           <div>
             <label for="application-url"
-              >URL to Job Description/Application Page</label
+              >URL to Job Description/Application Page
+              <span v-show="!jobListingInfo.url" class="text-red-600"
+                >*</span
+              ></label
             >
             <input
               id="application-url"
@@ -122,31 +210,59 @@ function openUploadWidget() {
               type="text"
               placeholder="http://yourcompany.com/careers"
               v-model="jobListingInfo.url" />
+            <p v-if="validationErrors.url" class="text-red-500">
+              {{ validationErrors.url }}
+            </p>
           </div>
           <div>
-            <label for="tags">Tags (max of five tags)</label>
-            <input
-              id="tags"
-              name="tags"
-              type="text"
-              placeholder="Javascript,React.js,Vue"
-              v-model="jobListingInfo.tags" />
+            <label
+              >Add tags
+              <span
+                v-show="jobListingInfo.tags.length === 0"
+                class="text-red-600"
+                >*</span
+              ></label
+            >
+            <VueMultiselect
+              aria-label="Job listing tags"
+              v-model="jobListingInfo.tags"
+              :options="tagOptions"
+              :multiple="true"
+              :taggable="true"
+              :allow-empty="false"
+              tag-placeholder="Add this as new tag"
+              placeholder="Type to search or add tag" />
+
+            <p v-if="validationErrors.tags" class="text-red-500">
+              {{ validationErrors.tags }}
+            </p>
           </div>
 
           <div>
-            <label for="company-name">Company Name</label>
+            <label for="company-name"
+              >Company Name
+              <span v-show="!jobListingInfo.companyName" class="text-red-600"
+                >*</span
+              ></label
+            >
             <input
               id="company-name"
               name="company-name"
               type="text"
               placeholder="My company"
               v-model="jobListingInfo.companyName" />
+            <p v-if="validationErrors.companyName" class="text-red-500">
+              {{ validationErrors.companyName }}
+            </p>
           </div>
 
           <div class="flex flex-col md:flex-row gap-4 items-start mb-4">
             <div>
               <label for="company-logo" class="block mb-2">
                 Company Logo (130x130 recommended)
+                <span v-show="!jobListingInfo.logoUrl" class="text-red-600"
+                  >*</span
+                >
               </label>
               <input
                 id="company-logo"
@@ -155,6 +271,10 @@ function openUploadWidget() {
                 class="file:mr-5 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-gray-500 hover:file:cursor-pointer hover:file:bg-gray-500 hover:file:text-white"
                 @click.prevent="openUploadWidget"
                 style="color: transparent" />
+
+              <p v-if="validationErrors.logoUrl" class="text-red-500">
+                {{ validationErrors.logoUrl }}
+              </p>
             </div>
             <div>
               <NuxtImg
@@ -171,11 +291,12 @@ function openUploadWidget() {
 
           <hr />
 
-          <div class="flex justify-between my-4 px-4">
+          <div class="flex justify-between my-4 pr-4">
             <h3 class="text-xl font-semibold mt-2">Salary</h3>
             <button
               type="button"
-              class="p-1 bg-gray-200 rounded-lg"
+              class="p-2 bg-gray-200 rounded-lg"
+              aria-label="Toggle salary options"
               @click="() => (isOpen = !isOpen)">
               <Icon v-if="isOpen" name="fa-solid:chevron-up" />
               <Icon v-if="!isOpen" name="fa-solid:chevron-down" />
@@ -191,15 +312,14 @@ function openUploadWidget() {
               class="max-w-32 p-2.5"
               v-model="jobListingInfo.salaryOption">
               <option
-                id="salary-options"
                 v-for="option in salaryOptions"
                 :key="option"
                 :value="option">
                 {{ option }}
               </option>
             </select>
-
-            <div class="flex items-center gap-2 mb-4">
+            {{ jobListingInfo.salaryOption }}
+            <div class="flex items-center gap-2 mb-4 items-">
               <div
                 class="flex w-full"
                 v-show="jobListingInfo.salaryOption === 'Range'">
@@ -222,7 +342,8 @@ function openUploadWidget() {
                   placeholder="2000"
                   v-model="jobListingInfo.salary" />
               </div>
-              <div>
+              <div class="flex items-center flex-col mb-4">
+                <label for="salary-period" class="text-sm">Salary period</label>
                 <select
                   name="salary-period"
                   id="salary-period"
@@ -237,6 +358,18 @@ function openUploadWidget() {
                 </select>
               </div>
             </div>
+          </div>
+          <p v-if="validationErrors.salary" class="text-red-500">
+            {{ validationErrors.salary }}
+          </p>
+
+          <div class="flex items-center gap-4">
+            <p v-if="validationErrors.salaryMin" class="text-red-500">
+              {{ validationErrors.salaryMin }}
+            </p>
+            <p v-if="validationErrors.salaryMax" class="text-red-500">
+              {{ validationErrors.salaryMax }}
+            </p>
           </div>
           <hr />
           <div class="mt-8">
@@ -259,7 +392,8 @@ function openUploadWidget() {
           <div class="flex justify-end my-4">
             <button
               type="submit"
-              class="p-4 bg-black text-white font-bold text-lg rounded-md my-4 hover:bg-slate-700">
+              class="p-4 bg-black text-white font-bold text-lg rounded-md my-4 hover:bg-slate-700 disabled:bg-slate-500 disabled:cursor-not-allowed"
+              :disabled="isButtonDisabled">
               Post Your Job - €{{ total }}
             </button>
           </div>
@@ -281,9 +415,9 @@ function openUploadWidget() {
           <span class="inline-block w-6 h-6 mr-4 text-blue-500"
             ><IconsRocket
           /></span>
-          <p class="text-xl font-bold text-gray-800">
+          <h3 class="text-xl font-bold text-gray-800">
             Simple and Straightforward:
-          </p>
+          </h3>
         </div>
         <p class="text-xl text-gray-700 mb-16">
           Post your job in minutes, no registration required.
@@ -293,27 +427,22 @@ function openUploadWidget() {
           <span class="inline-block w-6 h-6 mr-4 text-green-500"
             ><IconsHandshake
           /></span>
-          <p class="text-xl font-bold text-gray-800">Cost-Effective:</p>
+          <h4 class="text-xl font-bold text-gray-800">Cost-Effective:</h4>
         </div>
         <p class="text-xl text-gray-700 mb-16">
           Reach local talent without breaking the bank.
         </p>
 
-        <h4 class="mt-16 text-2xl underline text-green-600">
+        <h5 class="mt-16 text-2xl underline text-green-600">
           <span class="inline-block w-6 h-6 mr-4 text-green-600"
             ><IconsCheckmark
           /></span>
           Find Your Next Hiring Success.
-        </h4>
+        </h5>
       </div>
     </div>
   </main>
+  <TheFooter />
 </template>
 
-<style scoped>
-.bg-img {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-</style>
+<style src="vue-multiselect/dist/vue-multiselect.css" />

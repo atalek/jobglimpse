@@ -1,0 +1,61 @@
+<script lang="ts" setup>
+const {
+  data: jobListings,
+  pending,
+  error,
+} = await useFetch('/api/v1/getallposts')
+
+const searchTerm = ref('')
+
+const filteredJobListings = computed(() => {
+  if (!searchTerm.value) {
+    return jobListings.value
+  }
+
+  const searchTermLower = searchTerm.value.toLowerCase()
+  return jobListings?.value?.filter(listing => {
+    return (
+      listing?.title.toLowerCase().includes(searchTermLower) ||
+      listing?.companyName.toLowerCase().includes(searchTermLower) ||
+      listing?.tags.toLowerCase().includes(searchTermLower)
+    )
+  })
+})
+
+function tagClicked(value: string) {
+  searchTerm.value = value
+}
+</script>
+
+<template>
+  <div class="max-w-2xl mx-auto my-10 px-2">
+    <p v-if="error" class="text-red-600 text-center my-4 text-xl">
+      {{ error }}
+    </p>
+    <form class="flex items-center justify-center">
+      <label for="simple-search" class="sr-only">Search</label>
+
+      <input
+        type="text"
+        id="simple-search"
+        class="bg-gray-50 border border-gray-300 text-gray-900 !rounded-l-lg !rounded-r-none !mb-0 focus:outline-none focus:border-slate-400 focus:border-2 focus:ring-slate-400 text-sm block w-full pl-10 p-2.5 h-[56px]"
+        placeholder="Search"
+        v-model="searchTerm"
+        required />
+      <button
+        type="submit"
+        class="p-4 text-sm font-medium text-white rounded-r-lg bg-black hover:bg-slate-800 w-24"
+        aria-label="Search">
+        <Icon name="fa6-solid:magnifying-glass" class="h-6 w-6 text-white" />
+      </button>
+    </form>
+  </div>
+
+  <div class="mb-12 md:mb-24" />
+
+  <JobListing
+    v-for="jobListing in filteredJobListings"
+    :jobListing="jobListing"
+    :key="jobListing.id"
+    @tagClicked="tagClicked" />
+</template>

@@ -1,0 +1,34 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1705586229952,
+      "tag": "0000_productive_skaar",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1705601708316,
+      "tag": "0001_narrow_beyonder",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1705603856720,
+      "tag": "0002_flaky_leopardon",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1705607868070,
+      "tag": "0003_wonderful_starbolt",
+      "breakpoints": true
+    }
+  ]
+}

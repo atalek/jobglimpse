@@ -1,75 +1,100 @@
-# Nuxt 3 Minimal Starter
+# Job Board Project
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This project is a Job Board built with **Nuxt 3**, **Tailwind CSS**, **Turso
+SQLite** for the database, **Stripe** for payment integration, and
+**Cloudinary** for image upload.
+
+## Features
+
+- **Responsive Design:** The Job Board is designed to provide a seamless
+  experience across various devices and screen sizes.
+
+- **Job Listings:** Users can browse through a curated list of job listings,
+  each showcasing essential details about the job, such as title, location,
+  tags, and more.
+
+- **Job Creation:** Employers can create new job listings by providing relevant
+  information, including title, location, tags, company name, logo, salary
+  details, and more.
+
+- **Payment Integration:** The project integrates Stripe for secure and seamless
+  payment processing. Users can promote their job listings for enhanced
+  visibility by opting for a premium promotion feature.
+
+- **Image Upload:** Employers can upload company logos through Cloudinary,
+  ensuring a visually appealing presentation of their job listings.
+
+## Technologies Used
+
+- **Nuxt 3:** A powerful framework for building modern web applications with
+  Vue.js.
+
+- **Tailwind CSS:** A utility-first CSS framework for rapidly building custom
+  designs.
+
+- **Turso SQLite:** A lightweight, serverless SQLite database for storing and
+  retrieving job listing data.
+
+- **Stripe:** A secure and reliable platform for online payments.
+
+- **Cloudinary:** A cloud-based image and video management service for efficient
+  handling of uploaded logos.
 
 ## Setup
 
-Make sure to install the dependencies:
+1. **Clone the repository.**
+   ```bash
+   git clone https://github.com/your-username/job-board-project.git
 
-```bash
-# npm
-npm install
+   ```
+2. **Navigate to the project directory.**
 
-# pnpm
-pnpm install
+   ```bash
+   cd job-board-project
 
-# yarn
-yarn install
+   ```
 
-# bun
-bun install
-```
+3. **Install dependencies.**
 
-## Development Server
+   ```bash
+   npm install
 
-Start the development server on `http://localhost:3000`:
+   ```
 
-```bash
-# npm
-npm run dev
+4. **Configure environment variables.**
 
-# pnpm
-pnpm run dev
+   - Create a `.env` file in the root of the project.
+   - Add the necessary environment variables for Stripe and Cloudinary.
 
-# yarn
-yarn dev
+     ```env
+     #Turso
+     TURSO_DB_URL=your_turso_db_url
+     TURSO_DB_TOKEN=your_turso_auth_token
 
-# bun
-bun run dev
-```
+     # Stripe
+     STRIPE_PUBLIC_KEY=your_stripe_public_key
+     STRIPE_SECRET_KEY=your_stripe_secret_key
+     STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
 
-## Production
+     # Cloudinary
+     CLOUDINARY_CLOUD_NAME=your_cloud_name
+     CLOUDINARY_API_KEY=your_api_key
+     CLOUDINARY_API_SECRET=your_api_secret
+     ```
 
-Build the application for production:
+5. **Run the development server.**
+   ```bash
+   npm run dev
 
-```bash
-# npm
-npm run build
+   ```
+6. **Open your browser and visit http://localhost:3000 to view the Job Board.**
 
-# pnpm
-pnpm run build
+## Live Version
 
-# yarn
-yarn build
+[)
 
-# bun
-bun run build
-```
+## Author
 
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Github [@Amphei](https://github.com/Amphei) <br> Linkedin:
+[@Aleksandar Atanasovski](https://www.linkedin.com/in/aleksandar-atanasovski-16b123263/)
+<br> [Portfolio] (soon...)
