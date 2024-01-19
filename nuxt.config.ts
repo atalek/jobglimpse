@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxt/image',
     'nuxt-icon',
-    'nuxt-gtag',
   ],
 
   css: ['~/assets/index.css'],
@@ -43,10 +42,6 @@ export default defineNuxtConfig({
       cloudinaryFolder: process.env.CLOUDINARY_FOLDER,
       stripePublic: process.env.STRIPE_PUBLIC_KEY,
     },
-  },
-
-  gtag: {
-    id: process.env.GTAG_ID,
   },
 
   image: {

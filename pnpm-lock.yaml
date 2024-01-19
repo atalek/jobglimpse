@@ -52,9 +52,6 @@ devDependencies:
   nuxt:
     specifier: ^3.9.1
     version: 3.9.2(vite@5.0.11)
-  nuxt-gtag:
-    specifier: ^1.1.2
-    version: 1.1.2
   nuxt-icon:
     specifier: ^0.6.8
     version: 0.6.8(nuxt@3.9.2)(vite@5.0.11)(vue@3.4.14)
@@ -5598,17 +5595,6 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.3
-    dev: true
-
-  /nuxt-gtag@1.1.2:
-    resolution: {integrity: sha512-+gStu6D7RuKnYtmaeYlV+AYmqpNEk8sfv6XRL4hVMK0DSe1GnpPi3rVyx/R5WF8xe2xJl8/CTtgrE25CIOQsHQ==}
-    dependencies:
-      '@nuxt/kit': 3.9.2
-      defu: 6.1.4
-      pathe: 1.1.2
-    transitivePeerDependencies:
-      - rollup
-      - supports-color
     dev: true
 
   /nuxt-icon@0.6.8(nuxt@3.9.2)(vite@5.0.11)(vue@3.4.14):

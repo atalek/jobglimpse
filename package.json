@@ -18,7 +18,6 @@
     "@types/better-sqlite3": "^7.6.8",
     "drizzle-kit": "^0.20.13",
     "nuxt": "^3.9.1",
-    "nuxt-gtag": "^1.1.2",
     "nuxt-icon": "^0.6.8",
     "vue": "^3.4.10",
     "vue-router": "^4.2.5"
