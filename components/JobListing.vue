@@ -100,7 +100,7 @@ function calculateTimeDifference(createdAt: string) {
         >
       </div>
       <div
-        class="flex items-center text-center mt-2 md:mt-0 md:w-full md:max-w-[90px]">
+        class="flex items-center text-center justify-center mt-3 md:mt-0 md:w-full md:max-w-[90px]">
         {{ calculateTimeDifference(jobListing.createdAt) }}
       </div>
       <div
