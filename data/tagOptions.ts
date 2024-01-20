@@ -24,6 +24,17 @@ export const tagOptions = [
   'Groovy',
   'Visual Basic .NET',
   'Objective-C',
+  'COBOL',
+  'Fortran',
+  'Pascal',
+  'Ada',
+  'Lisp',
+  'Haskell',
+  'Erlang',
+  'Clojure',
+  'Dart',
+  'Elixir',
+  'Julia',
 
   // Frontend Frameworks/Libraries
   'React.js',
@@ -89,13 +100,13 @@ export const tagOptions = [
   'Time Series Databases',
   'Neo4j',
 
-	// Other Technologies
-	'Github',
-	'BitBucket',
-	'GitLab',
-	'Git',
-	'Puppet',
-	
+  // Other Technologies
+  'GitLab',
+  'Bitbucket',
+  'Puppet',
+  'Unity',
+  'Godot',
+  'Unreal Engine',
   'Midjourney',
   'Cypress',
   'Dall-e',
@@ -123,7 +134,7 @@ export const tagOptions = [
   'Sketch',
   'Adobexd',
   'Playwright',
-  'Docker',
+  'Docker Compose',
   'Kubernetes',
   'AWS',
   'Azure',
@@ -153,4 +164,43 @@ export const tagOptions = [
   'API Design',
   'Real-time Communication',
   'PWAs',
+
+  // AI/ML Subfields
+  'NLP',
+  'Computer Vision',
+  'Reinforcement Learning',
+  'Robotics',
+
+  // Cloud Infrastructure
+  'Azure',
+  'AWS',
+  'GCP',
+  'IaaS',
+  'PaaS',
+  'SaaS',
+  'VPCs',
+  'Subnets',
+  'Load Balancers',
+
+  // DevOps
+  'Jenkins',
+  'CircleCI',
+  'GitHub Actions',
+  'Infrastructure Automation',
+
+  // Testing
+  'JUnit',
+  'Mockito',
+  'Selenium',
+  'Cypress',
+  'Playwright',
+  'Unit Testing',
+  'Integration Testing',
+  'E2E Testing',
+
+  // Operating Systems
+  'Ubuntu',
+  'Debian',
+  'Fedora',
+  'CentOS',
 ]

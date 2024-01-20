@@ -90,9 +90,10 @@ SQLite** for the database, **Stripe** for payment integration, and
   BASE_URL=base_url
   ```
 
-5. **Run the development server.**
+5. **Run the migration and development server.**
 
    ```bash
+   npm run db-push
    npm run dev
 
    ```

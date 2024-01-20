@@ -9,7 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "db-generate": "drizzle-kit generate:sqlite",
-    "push": "drizzle-kit push:sqlite"
+    "db-push": "drizzle-kit push:sqlite"
   },
   "devDependencies": {
     "@nuxt/image": "^1.3.0",
