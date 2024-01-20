@@ -69,26 +69,26 @@ SQLite** for the database, **Stripe** for payment integration, and
 
 4. **Configure environment variables.**
 
-   - Create a `.env` file in the root of the project.
-   - Add the necessary environment variables for Stripe and Cloudinary.
+- Create a `.env` file in the root of the project.
+- Add the necessary environment variables for Stripe and Cloudinary.
 
-     ```env
-     #Turso
-     TURSO_DB_URL=your_turso_db_url
-     TURSO_DB_TOKEN=your_turso_auth_token
+  ```env
+  #Turso
+  TURSO_DB_URL=your_turso_db_url
+  TURSO_DB_TOKEN=your_turso_auth_token
 
-     # Stripe
-     STRIPE_PUBLIC_KEY=your_stripe_public_key
-     STRIPE_SECRET_KEY=your_stripe_secret_key
-     STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+  # Stripe
+  STRIPE_PUBLIC_KEY=your_stripe_public_key
+  STRIPE_SECRET_KEY=your_stripe_secret_key
+  STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
 
-     # Cloudinary
-     CLOUDINARY_CLOUD_NAME=your_cloud_name
-     CLOUDINARY_API_KEY=your_api_key
-     CLOUDINARY_API_SECRET=your_api_secret
+  # Cloudinary
+  CLOUDINARY_CLOUD_NAME=your_cloud_name
+  CLOUDINARY_API_KEY=your_api_key
+  CLOUDINARY_API_SECRET=your_api_secret
 
-     BASE_URL=base_url
-     ```
+  BASE_URL=base_url
+  ```
 
 5. **Run the development server.**
 
