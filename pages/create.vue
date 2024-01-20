@@ -423,7 +423,7 @@ if (route.fullPath.includes('?canceled=1')) {
       :style="{
         background: `url(${bgImage})`,
       }">
-      <div class="flex flex-col pb-10 mt-40">
+      <div class="flex flex-col pb-10 mt-20">
         <h2 class="text-4xl font-bold text-center">
           Connect Directly With Talent.
         </h2>
@@ -437,7 +437,7 @@ if (route.fullPath.includes('?canceled=1')) {
             Simple and Straightforward:
           </h3>
         </div>
-        <p class="text-xl text-gray-700 mb-16">
+        <p class="text-xl text-gray-700 mb-14">
           Post your job in minutes, no registration required.
         </p>
 
@@ -445,7 +445,7 @@ if (route.fullPath.includes('?canceled=1')) {
           <span class="inline-block w-6 h-6 mr-4"><IconsHandshake /></span>
           <h4 class="text-xl font-bold text-gray-800">Cost-Effective:</h4>
         </div>
-        <p class="text-xl text-gray-700 mb-16">
+        <p class="text-xl text-gray-700 mb-14">
           Reach local talent without breaking the bank.
         </p>
 
@@ -453,7 +453,7 @@ if (route.fullPath.includes('?canceled=1')) {
           <span class="inline-block w-6 h-6 mr-4"><IconsStar /></span>
           <h5 class="text-xl font-bold text-gray-800">Amplify Your Reach:</h5>
         </div>
-        <p class="text-xl text-gray-700 mb-16">
+        <p class="text-xl text-gray-700 mb-14">
           Pay a little extra to skyrocket your post to the top for 30 days.
         </p>
 
