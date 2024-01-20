@@ -78,14 +78,14 @@ SQLite** for the database, **Stripe** for payment integration, and
   TURSO_DB_TOKEN=your_turso_auth_token
 
   # Stripe
-  STRIPE_PUBLIC_KEY=your_stripe_public_key
-  STRIPE_SECRET_KEY=your_stripe_secret_key
+  STRIPE_PK=your_stripe_public_key
+  STRIPE_SK=your_stripe_secret_key
   STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
 
   # Cloudinary
-  CLOUDINARY_CLOUD_NAME=your_cloud_name
-  CLOUDINARY_API_KEY=your_api_key
-  CLOUDINARY_API_SECRET=your_api_secret
+  CLOUDINARY=your_cloudinary_base_url
+  CLOUDINARY_NAME=your_cloud_name
+  CLOUDINARY_FOLDER=your_cloudinary_folder
 
   BASE_URL=base_url
   ```
