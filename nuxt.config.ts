@@ -38,6 +38,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     baseUrl: process.env.BASE_URL,
     public: {
+      gtagId: process.env.GTAG_ID,
       cloudinaryName: process.env.CLOUDINARY_NAME,
       cloudinaryFolder: process.env.CLOUDINARY_FOLDER,
       stripePublic: process.env.STRIPE_PUBLIC_KEY,
