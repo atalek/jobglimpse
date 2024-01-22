@@ -58,6 +58,7 @@ export const tagOptions = [
   'Xamarin',
   'Ionic',
   'Figma',
+  'Remix',
 
   // Backend Frameworks/Libraries
   'Node.js',

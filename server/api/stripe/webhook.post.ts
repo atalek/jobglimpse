@@ -64,9 +64,6 @@ export default defineEventHandler(async event => {
       return 'ok'
     }
   } catch (error) {
-    throw createError({
-      statusCode: 400,
-      message: 'Invalid request body',
-    })
+    throw error
   }
 })

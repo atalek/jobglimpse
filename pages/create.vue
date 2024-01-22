@@ -4,7 +4,7 @@ import VueMultiselect from 'vue-multiselect'
 import { jobListingSchema } from '~/data/jobListingSchema'
 import bgImage from '~/assets/images/bg-photo.webp'
 import { tagOptions } from '~/data/tagOptions'
-import { JobListingType } from '~/data/types'
+import type { JobListingType } from '~/data/types'
 import { useToast } from 'vue-toastification'
 
 useSeoMeta({
@@ -150,17 +150,16 @@ if (route.fullPath.includes('?canceled=1')) {
   <main
     class="xl:grid xl:grid-cols-2"
     style="grid-template-columns: 0.6fr 0.4fr">
-    <section class="w-full h-screen overflow-y-scroll lg:px-10 px-5">
+    <section class="w-full h-screen overflow-y-scroll lg:px-10 px-3">
       <div class="text-3xl ml-5 mt-8">
         <NuxtLink to="/">JobGlimpse</NuxtLink>
       </div>
-      <div class="flex mx-auto w-full mt-16 px-8">
+      <div class="flex mx-auto w-full mt-16 px-4">
         <form
           class="w-full mx-auto max-w-2xl"
           @submit.prevent="createJobListing">
           <div class="flex justify-between items-center">
             <h2 class="text-2xl mb-8">Let's get started</h2>
-            <Loader v-if="isLoading" class="mb-2" />
             <button
               :disabled="isLoading"
               @click="clearForm"
@@ -396,15 +395,16 @@ if (route.fullPath.includes('?canceled=1')) {
             </h2>
 
             <div
-              class="flex items-center justify-between p-4 border rounded-md">
+              class="flex items-center justify-between p-4 border rounded-md"
+              :class="{ 'bg-slate-100 border-gray-800': promoted }">
               <div class="flex items-center gap-2 mb-1">
                 <input type="checkbox" id="promoted" v-model="promoted" />
-                <label for="promoted" class=""
+                <label for="promoted"
                   >Promote your listing to the top of the page for one month to
                   maximize exposure</label
                 >
               </div>
-              <span>+ €15 </span>
+              <span class="whitespace-nowrap">+ €15 </span>
             </div>
           </div>
           <div class="flex justify-end my-4">

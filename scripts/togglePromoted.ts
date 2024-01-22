@@ -5,8 +5,9 @@ import { lt } from 'drizzle-orm'
 import { jobListing } from '~/server/database/schema'
 import { db, tables } from '~/server/utils/db'
 
-const daysAgo = new Date(Date.now() - 1000 * 60 * 60 * 24 * 1) // 1 day ago
-const daysAgoStr = daysAgo.toISOString().slice(0, 19).replace('T', ' ')
+const numberOfDays = 30
+const cutoffDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * numberOfDays)
+const daysAgoStr = cutoffDate.toISOString().slice(0, 19).replace('T', ' ')
 
 await db()
   .update(tables.jobListing)

@@ -32,13 +32,11 @@ function tagClicked(value: string) {
     <p v-if="error" class="text-red-600 text-center my-4 text-xl">
       {{ error }}
     </p>
-    <div class="flex items-center justify-center">
-      <label for="simple-search" class="sr-only">Search</label>
-
+    <div class="flex items-center justify-center p-1">
       <input
         type="text"
         id="simple-search"
-        class="bg-gray-50 border border-gray-300 text-gray-900 !rounded-l-lg !rounded-r-none !mb-0 focus:outline-none focus:border-slate-400 focus:border-2 focus:ring-slate-400 text-sm block w-full pl-10 p-2.5 h-[56px]"
+        class="bg-gray-50 border border-gray-300 text-gray-900 !rounded-l-lg !rounded-r-none !mb-0 focus:outline-none focus:border-slate-400 focus:border-2 focus:ring-slate-400 text-sm block h-[56px]"
         placeholder="Search"
         v-model="searchTerm"
         required />

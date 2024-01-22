@@ -11,7 +11,7 @@ export const jobListingSchema = z.object({
     .string()
     .min(3, 'Company name must be at least 3 characters long'),
   logoUrl: z.string().min(6, {
-    message: 'Please provide a valid URL for your company logo',
+    message: 'Please provide a valid image for your company logo',
   }),
   salaryOption: z.enum(['Exact Rate', 'Range']).optional(),
   salaryMin: z
