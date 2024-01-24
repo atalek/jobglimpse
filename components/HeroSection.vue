@@ -26,7 +26,7 @@ import bgImage from '~/assets/images/bg-photo.webp'
       <div class="flex items-stretch justify-center">
         <NuxtLink
           to="/create"
-          class="mr-5 inline-block rounded-md bg-black hover:bg-slate-800 px-8 py-4 text-center font-semibold text-white md:mr-6 lg:mr-8"
+          class="mx-auto inline-block rounded-md bg-black hover:bg-slate-800 px-8 py-4 text-center font-semibold text-white"
           >Post a job</NuxtLink
         >
       </div>

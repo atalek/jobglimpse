@@ -159,7 +159,7 @@ if (route.fullPath.includes('?canceled=1')) {
           class="w-full mx-auto max-w-2xl"
           @submit.prevent="createJobListing">
           <div class="flex justify-between items-center">
-            <h2 class="text-2xl mb-8">Let's get started</h2>
+            <h2 class="text-2xl mb-5">Let's get started</h2>
             <button
               :disabled="isLoading"
               @click="clearForm"

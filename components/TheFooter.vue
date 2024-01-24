@@ -9,7 +9,7 @@ const currentYear = new Date().getFullYear()
         <NuxtLink
           to="https://github.com/Amphei/job-board"
           target="_blank"
-          class="text-slate-800 md:mt-0 mt-8 text-lg"
+          class="text-slate-800 md:mt-0 mt-8 md:text-lg"
           >© {{ currentYear }} JobGlimpse - Made by Amphei<Icon
             name="fa6-brands:github"
             class="ml-1 h-7 w-7"

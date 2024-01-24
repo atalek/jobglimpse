@@ -55,11 +55,11 @@ function calculateTimeDifference(createdAt: string) {
         </div>
         <div class="ml-4 flex flex-col max-w-md">
           <h3 class="text-slate-600 text-sm">{{ jobListing.companyName }}</h3>
-          <h4 class="font-semibold flex flex-wrap text-center">
+          <h4 class="font-semibold flex flex-wrap">
             {{ jobListing.title }}
             <span
               v-show="jobListing.promoted === 1"
-              class="ml-2 p-0.5 bg-yellow-400 text-center rounded-md">
+              class="ml-1 md:ml-2 p-0.5 bg-yellow-400 rounded-md">
               Featured</span
             >
           </h4>
