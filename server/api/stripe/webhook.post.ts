@@ -10,17 +10,10 @@ export default defineEventHandler(async event => {
     apiVersion: '2023-10-16',
   })
 
-  if (!body || !stripeSignature) {
-    throw createError({
-      statusCode: 400,
-      message: 'Invalid request body',
-    })
-  }
-
   try {
-    const stripeEvent = stripe.webhooks.constructEvent(
-      body,
-      stripeSignature,
+    const stripeEvent = await stripe.webhooks.constructEventAsync(
+      body!,
+      stripeSignature!,
       process.env.STRIPE_WEBHOOK_SECRET as string,
     )
 
