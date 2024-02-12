@@ -41,6 +41,7 @@ function calculateTimeDifference(createdAt: string) {
         <div class="relative flex-shrink-0">
           <NuxtImg
             provider="cloudinary"
+            loading="lazy"
             :src="jobListing.logoUrl"
             :alt="`${jobListing.companyName} 'logo'`"
             width="64"
