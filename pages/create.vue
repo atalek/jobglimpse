@@ -6,6 +6,13 @@ import bgImage from '~/assets/images/bg-photo.webp'
 import { tagOptions } from '~/data/tagOptions'
 import type { JobListingType } from '~/data/types'
 import { useToast } from 'vue-toastification'
+import autoAnimate from '@formkit/auto-animate'
+
+const dropdown = ref()
+
+onMounted(() => {
+  autoAnimate(dropdown.value)
+})
 
 useSeoMeta({
   title: 'Create a job post - JobGlimpse',
@@ -309,9 +316,10 @@ if (route.fullPath.includes('?canceled=1')) {
               type="button"
               class="p-2 bg-gray-200 rounded-lg disabled:cursor-not-allowed"
               aria-label="Toggle salary options"
-              @click="() => (isOpen = !isOpen)">
+              @click="() => (isOpen = !isOpen)"
+              ref="dropdown">
               <Icon v-if="isOpen" name="fa-solid:chevron-up" />
-              <Icon v-if="!isOpen" name="fa-solid:chevron-down" />
+              <Icon v-else="!isOpen" name="fa-solid:chevron-down" />
             </button>
           </div>
           <div

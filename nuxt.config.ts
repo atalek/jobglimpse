@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxt/image',
     'nuxt-icon',
+    '@formkit/auto-animate',
   ],
 
   css: ['~/assets/index.css'],
