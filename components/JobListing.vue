@@ -18,6 +18,11 @@ function calculateTimeDifference(createdAt: string) {
   const days = Math.floor(Math.abs(moment.duration(difference).asDays()))
   const hours = Math.floor(Math.abs(moment.duration(difference).asHours()) % 24)
 
+  if (days >= 30) {
+    const monthsAgo = Math.floor(days / 30)
+    return `${monthsAgo} ${monthsAgo === 1 ? 'month' : 'months'} ago`
+  }
+
   if (days >= 1) {
     return days === 1 ? '1 day ago' : `${days} days ago`
   } else if (hours >= 1) {
