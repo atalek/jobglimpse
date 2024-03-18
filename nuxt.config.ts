@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxt/image',
     'nuxt-icon',
-    '@formkit/auto-animate',
   ],
 
   css: ['~/assets/index.css'],
@@ -23,7 +22,7 @@ export default defineNuxtConfig({
   },
 
   googleFonts: {
-    families: { Roboto: [400, 600, 700, 800] },
+    families: { Roboto: [400, 500, 700, 900] },
   },
 
   app: {

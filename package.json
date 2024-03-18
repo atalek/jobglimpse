@@ -13,7 +13,6 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@formkit/auto-animate": "^0.8.1",
     "@nuxt/image": "^1.4.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/tailwindcss": "^6.11.4",

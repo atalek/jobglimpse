@@ -110,7 +110,7 @@ function calculateTimeDifference(createdAt: string) {
         {{ calculateTimeDifference(jobListing.createdAt) }}
       </div>
       <div
-        class="flex items-center md:justify-end justify-center mt-2 ml-2 md:mt-0 invisible group-hover:visible">
+        class="flex items-center md:justify-end justify-center mt-2 ml-2 md:mt-0 md:invisible md:group-hover:visible">
         <NuxtLink
           :to="jobListing.url"
           target="_blank"
