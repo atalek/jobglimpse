@@ -37,7 +37,7 @@ function calculateTimeDifference(createdAt: string) {
 </script>
 
 <template>
-  <div class="max-w-7xl mx-auto p-2 border-b-2">
+  <div class="max-w-7xl mx-auto p-2 border-b-2 group">
     <div class="w-full flex flex-col md:flex-row justify-between">
       <NuxtLink
         :to="jobListing.url"
@@ -110,7 +110,7 @@ function calculateTimeDifference(createdAt: string) {
         {{ calculateTimeDifference(jobListing.createdAt) }}
       </div>
       <div
-        class="flex items-center md:justify-end justify-center mt-2 ml-2 md:mt-0">
+        class="flex items-center md:justify-end justify-center mt-2 ml-2 md:mt-0 invisible group-hover:visible">
         <NuxtLink
           :to="jobListing.url"
           target="_blank"
