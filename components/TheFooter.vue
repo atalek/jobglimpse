@@ -7,10 +7,10 @@ const currentYear = new Date().getFullYear()
     <div class="max-w-7xl mx-auto text-center">
       <div>
         <NuxtLink
-          to="https://github.com/Amphei/job-board"
+          to="https://github.com/atalek/job-board"
           target="_blank"
           class="text-slate-800 md:mt-0 mt-8 md:text-lg"
-          >© {{ currentYear }} JobGlimpse - Made by Amphei<Icon
+          >© {{ currentYear }} JobGlimpse - Made by atalek<Icon
             name="fa6-brands:github"
             class="ml-1 h-7 w-7"
         /></NuxtLink>
