@@ -52,9 +52,11 @@ function tagClicked(value: string) {
     <Loader v-if="pending" />
   </div>
   <div class="mb-12 md:mb-24" />
-  <JobListing
-    v-for="jobListing in filteredJobListings"
-    :jobListing="jobListing"
-    :key="jobListing.id"
-    @tagClicked="tagClicked" />
+  <div class="divide-y-2">
+    <JobListing
+      v-for="jobListing in filteredJobListings"
+      :jobListing="jobListing"
+      :key="jobListing.id"
+      @tagClicked="tagClicked" />
+  </div>
 </template>

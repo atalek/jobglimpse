@@ -310,13 +310,12 @@ if (route.fullPath.includes('?canceled=1')) {
               class="p-2 bg-gray-200 rounded-lg disabled:cursor-not-allowed"
               aria-label="Toggle salary options"
               @click="() => (isOpen = !isOpen)">
-              <Icon v-if="isOpen" name="fa-solid:chevron-up" />
-              <Icon v-else="!isOpen" name="fa-solid:chevron-down" />
+              <Icon
+                name="fa-solid:chevron-down"
+                :class="`transition-transform ${isOpen ? 'rotate-180' : ''}`" />
             </button>
           </div>
-          <div
-            class="flex flex-col gap-2"
-            :class="{ block: isOpen, hidden: !isOpen }">
+          <div :class="`${isOpen ? 'block ' : 'hidden'} flex flex-col gap-2 `">
             <label for="salary-options">Rate</label>
             <select
               :disabled="isLoading"
