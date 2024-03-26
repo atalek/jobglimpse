@@ -102,7 +102,7 @@ SQLite** for the database, **Stripe** for payment integration, and
 
 ## Live Version
 
-[https://jobglimpse.pages.dev/](https://jobglimpse.pages.dev/)
+[https://jobglimpse.atalek.com/](https://jobglimpse.atalek.com/)
 
 ## Author
 
