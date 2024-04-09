@@ -238,7 +238,7 @@ if (route.fullPath.includes('?canceled=1')) {
               :options="tagOptions"
               :multiple="true"
               :taggable="true"
-              :allow-empty="false"
+              :allow-empty="true"
               tag-placeholder="Add this as new tag"
               placeholder="Type to search or add tag" />
 
