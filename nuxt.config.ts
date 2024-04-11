@@ -52,6 +52,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/test': { ssr: false },
+    '/': { swr: true },
+    '/create': { prerender: true },
   },
 })
