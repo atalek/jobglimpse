@@ -148,13 +148,13 @@ if (route.fullPath.includes('?canceled=1')) {
 
 <template>
   <main
-    class="xl:grid xl:grid-cols-2"
+    class="xl:grid xl:grid-cols-2 overflow-y-auto min-h-screen"
     style="grid-template-columns: 0.6fr 0.4fr">
     <section class="w-full h-screen overflow-y-scroll lg:px-10 px-3">
       <div class="text-3xl ml-5 mt-8">
         <NuxtLink to="/">JobGlimpse</NuxtLink>
       </div>
-      <div class="flex mx-auto w-full mt-16 px-4">
+      <div class="flex mx-auto w-full my-16 px-4">
         <form
           class="w-full mx-auto max-w-2xl"
           @submit.prevent="createJobListing">
@@ -315,78 +315,91 @@ if (route.fullPath.includes('?canceled=1')) {
                 :class="`transition-transform ${isOpen ? 'rotate-180' : ''}`" />
             </button>
           </div>
-          <div :class="`${isOpen ? 'block ' : 'hidden'} flex flex-col gap-2 `">
-            <label for="salary-options">Rate</label>
-            <select
-              :disabled="isLoading"
-              name="salary-options"
-              id="salary-options"
-              class="max-w-32 p-2.5"
-              v-model="jobListingInfo.salaryOption">
-              <option
-                v-for="option in salaryOptions"
-                :key="option"
-                :value="option">
-                {{ option }}
-              </option>
-            </select>
-            {{ jobListingInfo.salaryOption }}
-            <div class="flex items-center gap-2 mb-4 items-">
+          <Transition name="slide-fade">
+            <div v-if="isOpen">
               <div
-                class="flex w-full"
-                v-show="jobListingInfo.salaryOption === 'Range'">
-                <input
-                  :disabled="isLoading"
-                  type="text"
-                  placeholder="2000"
-                  v-model="jobListingInfo.salaryMin" />
-                <span class="flex items-center mx-1">to</span>
-                <input
-                  :disabled="isLoading"
-                  type="text"
-                  placeholder="5000"
-                  v-model="jobListingInfo.salaryMax" />
-              </div>
-
-              <div
-                class="flex w-full"
-                v-show="jobListingInfo.salaryOption === 'Exact Rate'">
-                <input
-                  :disabled="isLoading"
-                  type="text"
-                  placeholder="2000"
-                  v-model="jobListingInfo.salary" />
-              </div>
-              <div class="flex items-center flex-col mb-5">
-                <label for="salary-period" class="text-sm">Salary period</label>
+                :class="`${isOpen ? 'block ' : 'hidden'} flex flex-col gap-2 `">
+                <label for="salary-options">Rate</label>
                 <select
                   :disabled="isLoading"
-                  name="salary-period"
-                  id="salary-period"
-                  class="w-28 p-2.5 text-center"
-                  v-model="jobListingInfo.salaryPeriod">
+                  name="salary-options"
+                  id="salary-options"
+                  class="max-w-32 p-2.5"
+                  v-model="jobListingInfo.salaryOption">
                   <option
-                    v-for="option in periodOptions"
+                    v-for="option in salaryOptions"
                     :key="option"
                     :value="option">
                     {{ option }}
                   </option>
                 </select>
+                <div class="flex items-center gap-2 mb-4 items-">
+                  <div
+                    class="flex w-full"
+                    v-show="jobListingInfo.salaryOption === 'Range'">
+                    <input
+                      :disabled="isLoading"
+                      type="text"
+                      :placeholder="`${
+                        jobListingInfo.salaryPeriod === 'Hourly' ? '50' : '2000'
+                      }`"
+                      v-model="jobListingInfo.salaryMin" />
+                    <span class="flex items-center mx-1">to</span>
+                    <input
+                      :disabled="isLoading"
+                      type="text"
+                      :placeholder="`${
+                        jobListingInfo.salaryPeriod === 'Hourly' ? '70' : '5000'
+                      }`"
+                      v-model="jobListingInfo.salaryMax" />
+                  </div>
+
+                  <div
+                    class="flex w-full"
+                    v-show="jobListingInfo.salaryOption === 'Exact Rate'">
+                    <input
+                      :disabled="isLoading"
+                      type="text"
+                      :placeholder="`${
+                        jobListingInfo.salaryPeriod === 'Hourly' ? '70' : '5000'
+                      }`"
+                      v-model="jobListingInfo.salary" />
+                  </div>
+                  <div class="flex items-center flex-col mb-5">
+                    <label for="salary-period" class="text-sm"
+                      >Salary period</label
+                    >
+                    <select
+                      :disabled="isLoading"
+                      name="salary-period"
+                      id="salary-period"
+                      class="w-28 p-2.5 text-center"
+                      v-model="jobListingInfo.salaryPeriod">
+                      <option
+                        v-for="option in periodOptions"
+                        :key="option"
+                        :value="option">
+                        {{ option }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <p v-if="validationErrors.salary" class="text-red-500">
+                {{ validationErrors.salary }}
+              </p>
+
+              <div class="flex items-center gap-4">
+                <p v-if="validationErrors.salaryMin" class="text-red-500">
+                  {{ validationErrors.salaryMin }}
+                </p>
+                <p v-if="validationErrors.salaryMax" class="text-red-500">
+                  {{ validationErrors.salaryMax }}
+                </p>
               </div>
             </div>
-          </div>
-          <p v-if="validationErrors.salary" class="text-red-500">
-            {{ validationErrors.salary }}
-          </p>
+          </Transition>
 
-          <div class="flex items-center gap-4">
-            <p v-if="validationErrors.salaryMin" class="text-red-500">
-              {{ validationErrors.salaryMin }}
-            </p>
-            <p v-if="validationErrors.salaryMax" class="text-red-500">
-              {{ validationErrors.salaryMax }}
-            </p>
-          </div>
           <hr />
           <div class="mt-8">
             <h2 class="text-xl font-semibold my-4">
@@ -416,9 +429,10 @@ if (route.fullPath.includes('?canceled=1')) {
           </div>
         </form>
       </div>
+      <TheFooter />
     </section>
     <section
-      class="w-full h-screen lg:flex justify-center hidden bg-img"
+      class="w-full h-screen lg:flex justify-center hidden bg-img overflow-hidden"
       :style="{
         background: `url(${bgImage})`,
       }">
@@ -466,7 +480,21 @@ if (route.fullPath.includes('?canceled=1')) {
       </div>
     </section>
   </main>
-  <TheFooter />
 </template>
 
 <style src="vue-multiselect/dist/vue-multiselect.css" />
+<style scoped>
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(-50px);
+  opacity: 0;
+}
+</style>
