@@ -1,22 +1,17 @@
-<script lang="ts" setup>
-import { useToast } from 'vue-toastification'
-const toast = useToast()
-
-const jobInfoCookie = useCookie('jobListingCookie')
-const route = useRoute()
-
-if (process.client) {
-  if (route.fullPath.includes('?success=1')) {
-    jobInfoCookie.value = null
-    toast.success('Job post created 🥳')
-  }
-}
-</script>
+<script lang="ts" setup></script>
 
 <template>
-  <div>
-    <HeroSection />
-    <PostsSection />
-    <TheFooter />
+  <div class="max-w-7xl mx-auto px-5">
+    <LandingHeader />
+    <main>
+      <LandingHero />
+      <div class="my-24" />
+      <LandingFeatures />
+      <LandingPricing />
+      <LandingContact />
+    </main>
+    <LandingFooter />
   </div>
 </template>
+
+<style scoped></style>

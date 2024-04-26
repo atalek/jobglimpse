@@ -7,7 +7,12 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  @apply bg-slate-50;
+}
+
 select,
+textarea,
 input[type='email'],
 input[type='password'],
 input[type='tel'],
@@ -19,7 +24,9 @@ input[type='number'] {
 input[type='email']:disabled,
 input[type='password']:disabled,
 input[type='tel']:disabled,
-input[type='text']:disabled {
+input[type='text']:disabled,
+select:disabled,
+textarea:disabled {
   @apply bg-gray-300 border-0 cursor-not-allowed text-gray-500;
 }
 label {

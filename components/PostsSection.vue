@@ -3,7 +3,7 @@ const {
   data: jobListings,
   pending,
   error,
-} = await useFetch('/api/v1/getallposts')
+} = await useFetch('/api/v1/getallposts', { lazy: true })
 
 const filteredJobListings = computed(() => {
   if (!searchTerm.value) {
@@ -29,7 +29,9 @@ function tagClicked(value: string) {
 
 <template>
   <section class="max-w-2xl mx-auto my-10 px-2">
-    <p v-if="error" class="text-red-600 text-center my-4 text-xl">
+    <p
+      v-if="error"
+      class="text-red-600 text-center my-4 text-xl">
       {{ error }}
     </p>
     <div class="flex items-center justify-center p-1">
@@ -44,15 +46,18 @@ function tagClicked(value: string) {
         type="submit"
         class="p-4 text-sm font-medium text-white rounded-r-lg bg-black hover:bg-slate-800 w-24"
         aria-label="Search">
-        <Icon name="fa6-solid:magnifying-glass" class="h-6 w-6 text-white" />
+        <Icon
+          name="fa6-solid:magnifying-glass"
+          class="h-6 w-6 text-white" />
       </button>
     </div>
   </section>
-  <div>
-    <Loader v-if="pending" />
-  </div>
   <div class="mb-12 md:mb-24" />
-  <div class="divide-y-2">
+  <LoadingSkeleton v-if="pending" />
+
+  <div
+    class="divide-y-2"
+    v-if="!pending && !error">
     <JobListing
       v-for="jobListing in filteredJobListings"
       :jobListing="jobListing"

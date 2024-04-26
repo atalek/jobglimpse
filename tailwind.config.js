@@ -2,8 +2,11 @@
 export default {
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#00DC82',
+      },
+    },
   },
   plugins: [],
 }
-

@@ -152,7 +152,11 @@ if (route.fullPath.includes('?canceled=1')) {
     style="grid-template-columns: 0.6fr 0.4fr">
     <section class="w-full h-screen overflow-y-scroll lg:px-10 px-3">
       <div class="text-3xl ml-5 mt-8">
-        <NuxtLink to="/">JobGlimpse</NuxtLink>
+        <NuxtLink
+          to="/jobs"
+          class="font-bold"
+          >JobGlimpse</NuxtLink
+        >
       </div>
       <div class="flex mx-auto w-full my-16 px-4">
         <form
@@ -172,7 +176,11 @@ if (route.fullPath.includes('?canceled=1')) {
           <div class="flex flex-col gap-2">
             <label for="job-title"
               >Job title
-              <span v-show="!jobListingInfo.title" class="text-red-600">*</span>
+              <span
+                v-show="!jobListingInfo.title"
+                class="text-red-600"
+                >*</span
+              >
             </label>
             <input
               :disabled="isLoading"
@@ -181,14 +189,18 @@ if (route.fullPath.includes('?canceled=1')) {
               type="text"
               placeholder="Junior Software Engineer"
               v-model="jobListingInfo.title" />
-            <p v-if="validationErrors.title" class="text-red-500">
+            <p
+              v-if="validationErrors.title"
+              class="text-red-500">
               {{ validationErrors.title }}
             </p>
           </div>
           <div>
             <label for="job-location"
               >Job location
-              <span v-show="!jobListingInfo.location" class="text-red-600"
+              <span
+                v-show="!jobListingInfo.location"
+                class="text-red-600"
                 >*</span
               ></label
             >
@@ -200,14 +212,18 @@ if (route.fullPath.includes('?canceled=1')) {
               class="w-full"
               placeholder="City and/or Remote, Office or Hybrid"
               v-model="jobListingInfo.location" />
-            <p v-if="validationErrors.location" class="text-red-500">
+            <p
+              v-if="validationErrors.location"
+              class="text-red-500">
               {{ validationErrors.location }}
             </p>
           </div>
           <div>
             <label for="application-url"
               >URL to Job Description/Application Page
-              <span v-show="!jobListingInfo.url" class="text-red-600"
+              <span
+                v-show="!jobListingInfo.url"
+                class="text-red-600"
                 >*</span
               ></label
             >
@@ -218,7 +234,9 @@ if (route.fullPath.includes('?canceled=1')) {
               type="text"
               placeholder="http://yourcompany.com/careers"
               v-model="jobListingInfo.url" />
-            <p v-if="validationErrors.url" class="text-red-500">
+            <p
+              v-if="validationErrors.url"
+              class="text-red-500">
               {{ validationErrors.url }}
             </p>
           </div>
@@ -242,7 +260,9 @@ if (route.fullPath.includes('?canceled=1')) {
               tag-placeholder="Add this as new tag"
               placeholder="Type to search or add tag" />
 
-            <p v-if="validationErrors.tags" class="text-red-500">
+            <p
+              v-if="validationErrors.tags"
+              class="text-red-500">
               {{ validationErrors.tags }}
             </p>
           </div>
@@ -250,7 +270,9 @@ if (route.fullPath.includes('?canceled=1')) {
           <div>
             <label for="company-name"
               >Company Name
-              <span v-show="!jobListingInfo.companyName" class="text-red-600"
+              <span
+                v-show="!jobListingInfo.companyName"
+                class="text-red-600"
                 >*</span
               ></label
             >
@@ -261,16 +283,22 @@ if (route.fullPath.includes('?canceled=1')) {
               type="text"
               placeholder="My company"
               v-model="jobListingInfo.companyName" />
-            <p v-if="validationErrors.companyName" class="text-red-500">
+            <p
+              v-if="validationErrors.companyName"
+              class="text-red-500">
               {{ validationErrors.companyName }}
             </p>
           </div>
 
           <div class="flex flex-col md:flex-row gap-4 items-start mb-4">
             <div>
-              <label for="company-logo" class="block mb-2">
+              <label
+                for="company-logo"
+                class="block mb-2">
                 Company Logo (130x130 recommended)
-                <span v-show="!jobListingInfo.logoUrl" class="text-red-600"
+                <span
+                  v-show="!jobListingInfo.logoUrl"
+                  class="text-red-600"
                   >*</span
                 >
               </label>
@@ -283,7 +311,9 @@ if (route.fullPath.includes('?canceled=1')) {
                 @click.prevent="openUploadWidget"
                 style="color: transparent" />
 
-              <p v-if="validationErrors.logoUrl" class="text-red-500">
+              <p
+                v-if="validationErrors.logoUrl"
+                class="text-red-500">
                 {{ validationErrors.logoUrl }}
               </p>
             </div>
@@ -298,7 +328,9 @@ if (route.fullPath.includes('?canceled=1')) {
             </div>
           </div>
 
-          <input class="hidden" v-model="jobListingInfo.logoUrl" />
+          <input
+            class="hidden"
+            v-model="jobListingInfo.logoUrl" />
 
           <hr />
 
@@ -366,7 +398,9 @@ if (route.fullPath.includes('?canceled=1')) {
                       v-model="jobListingInfo.salary" />
                   </div>
                   <div class="flex items-center flex-col mb-5">
-                    <label for="salary-period" class="text-sm"
+                    <label
+                      for="salary-period"
+                      class="text-sm"
                       >Salary period</label
                     >
                     <select
@@ -385,15 +419,21 @@ if (route.fullPath.includes('?canceled=1')) {
                   </div>
                 </div>
               </div>
-              <p v-if="validationErrors.salary" class="text-red-500">
+              <p
+                v-if="validationErrors.salary"
+                class="text-red-500">
                 {{ validationErrors.salary }}
               </p>
 
               <div class="flex items-center gap-4">
-                <p v-if="validationErrors.salaryMin" class="text-red-500">
+                <p
+                  v-if="validationErrors.salaryMin"
+                  class="text-red-500">
                   {{ validationErrors.salaryMin }}
                 </p>
-                <p v-if="validationErrors.salaryMax" class="text-red-500">
+                <p
+                  v-if="validationErrors.salaryMax"
+                  class="text-red-500">
                   {{ validationErrors.salaryMax }}
                 </p>
               </div>
@@ -410,7 +450,10 @@ if (route.fullPath.includes('?canceled=1')) {
               class="flex items-center justify-between p-4 border rounded-md"
               :class="{ 'bg-slate-100 border-gray-800': promoted }">
               <div class="flex items-center gap-2 mb-1">
-                <input type="checkbox" id="promoted" v-model="promoted" />
+                <input
+                  type="checkbox"
+                  id="promoted"
+                  v-model="promoted" />
                 <label for="promoted"
                   >Promote your listing to the top of the page for one month to
                   maximize exposure</label

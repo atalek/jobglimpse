@@ -34,7 +34,7 @@ export default defineEventHandler(async event => {
   })
 
   const currentDomain = useRuntimeConfig().baseUrl
-  const successUrl = `${currentDomain}/?success=1`
+  const successUrl = `${currentDomain}/jobs?success=1`
   const cancelUrl = `${currentDomain}/create?canceled=1`
 
   const stripeSession = await stripe.checkout.sessions.create({

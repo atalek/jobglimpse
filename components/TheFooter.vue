@@ -12,7 +12,7 @@ const currentYear = new Date().getFullYear()
           class="text-slate-800 md:mt-0 mt-8 md:text-lg"
           >© {{ currentYear }} JobGlimpse - Made by atalek<Icon
             name="fa6-brands:github"
-            class="ml-1 h-7 w-7"
+            class="ml-1 size-6"
         /></NuxtLink>
       </div>
     </div>
