@@ -1,9 +1,10 @@
 <script lang="ts" setup></script>
 
-<!-- action="https://formspree.io/f/xoqgygwv"
-method="POST"> -->
 <template>
-  <form id="form">
+  <form
+    id="form"
+    action="https://formspree.io/f/xoqgygwv"
+    method="POST">
     <div class="mb-5">
       <label
         htmlFor="full_name"
