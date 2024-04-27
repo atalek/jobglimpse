@@ -32,7 +32,7 @@ function tagClicked(value: string) {
     <p
       v-if="error"
       class="text-red-600 text-center my-4 text-xl">
-      {{ error }}
+      {{ error.data.message }}
     </p>
     <div class="flex items-center justify-center p-1">
       <input
