@@ -42,20 +42,20 @@ const currentYear = new Date().getFullYear()
         </li>
         <li>
           <NuxtLink
-            href="#"
+            href="/create"
             class="mr-4 hover:underline md:mr-6">
             Post a job</NuxtLink
           >
         </li>
       </ul>
-      <section class="text-center">
+      <section>
         <NuxtLink
           to="https://github.com/atalek/jobglimpse"
           target="_blank"
-          class="text-slate-800 md:text-lg"
+          class="text-slate-800 md:text-lg flex items-center justify-center"
           >© {{ currentYear }} JobGlimpse - Made by atalek<Icon
             name="fa6-brands:github"
-            class="ml-1 size-6"
+            class="ml-1 size-5"
         /></NuxtLink>
       </section>
     </div>
