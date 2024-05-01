@@ -100,7 +100,7 @@ function calculateTimeDifference(createdAt: string) {
         <span
           v-for="tag in jobListing.tags.split(',')"
           :key="tag"
-          class="p-1 rounded-md bg-slate-200 cursor-pointer hover:bg-slate-400 flex items-center capitalize"
+          class="p-1 rounded-md bg-slate-200 cursor-pointer hover:bg-slate-400 flex items-center capitalize group-hover:bg-slate-500 group-hover:hover:bg-slate-700 group-hover:text-slate-100"
           @click="emits('tagClicked', tag)">
           {{ tag }}</span
         >

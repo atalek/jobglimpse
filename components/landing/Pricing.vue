@@ -22,7 +22,7 @@
             <Icon
               name="fa6-solid:check"
               class="size-6 text-green-600" />
-            <span>Up to 30 days visibility</span>
+            <span>Up to 60 days visibility</span>
           </li>
           <li class="flex items-start gap-3 text-gray-800">
             <Icon
@@ -57,7 +57,7 @@
             <Icon
               name="fa6-solid:check"
               class="size-6 text-green-600" />
-            <span>Up to 30 days visibility</span>
+            <span>Up to 60 days visibility</span>
           </li>
           <li class="flex items-start gap-3 text-gray-800">
             <Icon
