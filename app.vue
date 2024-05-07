@@ -14,7 +14,7 @@ useHead({
         'job board, job search, career, employment, hiring, jobs, recruitment, opportunities, work, resume, apply online',
     },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'Your Job Board URL' },
+    { property: 'og:url', content: 'https://jobglimpse.atalek.com/' },
     {
       property: 'og:title',
       content: 'JobGlimpse - Simplifying Your Job Search',
@@ -33,7 +33,7 @@ useHead({
       property: 'twitter:card',
       content: 'summary_large_image',
     },
-    { property: 'twitter:url', content: 'Your Job Board URL' },
+    { property: 'twitter:url', content: 'https://jobglimpse.atalek.com/' },
     {
       property: 'twitter:title',
       content: 'JobGlimpse - Find Your Dream Job, Effortlessly',
