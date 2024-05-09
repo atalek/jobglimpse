@@ -53,7 +53,7 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/': { prerender: true },
-    '/jobs': { swr: 3600 * 24 },
+    '/jobs': { swr: 3600 },
     '/create': { prerender: true },
   },
 })

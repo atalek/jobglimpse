@@ -165,6 +165,7 @@ export const tagOptions = [
   'API Design',
   'Real-time Communication',
   'PWAs',
+  'Cloud',
 
   // AI/ML Subfields
   'NLP',

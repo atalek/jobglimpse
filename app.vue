@@ -1,7 +1,6 @@
 <script setup lang="ts">
 useHead({
   title: 'JobGlimpse - Find Your Dream Job, Effortlessly',
-
   meta: [
     {
       name: 'description',
