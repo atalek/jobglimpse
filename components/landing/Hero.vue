@@ -3,13 +3,6 @@
   <section
     id="hero"
     class="grid lg:grid-cols-2 place-items-center pt-24 pb-8 md:pt-24 md:pb-24">
-    <div class="py-6 md:order-1 hidden md:block">
-      <img
-        src="~/assets/images/hero.webp"
-        alt="job board hero image"
-        class="max-h-[480px] max-w-[640px] rounded-md"
-        loading="eager" />
-    </div>
     <div>
       <h1
         class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
@@ -40,6 +33,15 @@
           View all jobs
         </NuxtLink>
       </div>
+    </div>
+    <div class="mt-24 lg:mt-0 md:order-1">
+      <NuxtImg
+        src="/hero.webp"
+        alt="job board hero image"
+        size="100vw sm:50vw"
+        height="440"
+        width="620"
+        loading="eager" />
     </div>
   </section>
 </template>
