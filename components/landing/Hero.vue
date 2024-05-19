@@ -36,7 +36,8 @@
     </div>
     <div class="mt-24 lg:mt-0 md:order-1">
       <NuxtImg
-        src="/hero.webp"
+        provider="cloudinary"
+        src="/ykhz1qagqab070gjxluz.webp"
         alt="job board hero image"
         size="100vw sm:50vw"
         height="440"
