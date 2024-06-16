@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="max-w-7xl mx-auto px-5">
+  <div class="px-5 mx-auto max-w-7xl">
     <LandingHeader />
     <main>
       <LandingHero />
@@ -13,5 +13,3 @@
     <LandingFooter />
   </div>
 </template>
-
-<style scoped></style>

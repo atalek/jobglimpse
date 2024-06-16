@@ -3,14 +3,15 @@ const currentYear = new Date().getFullYear()
 </script>
 
 <template>
-  <footer class="border-t-2 py-4">
-    <div class="max-w-7xl mx-auto text-center">
+  <footer class="py-4 mt-auto border-t-2">
+    <div class="mx-auto text-center max-w-7xl">
       <div>
         <NuxtLink
           to="https://github.com/atalek/jobglimpse"
           target="_blank"
-          class="text-slate-800 md:mt-0 mt-8 md:text-lg"
-          >© {{ currentYear }} JobGlimpse - Made by atalek<Icon
+          class="mt-8 text-slate-800 md:mt-0 md:text-lg"
+          >© {{ currentYear }} JobGlimpse - Made by atalek
+          <Icon
             name="fa6-brands:github"
             class="ml-1 size-5"
         /></NuxtLink>
