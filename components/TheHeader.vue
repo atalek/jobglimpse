@@ -1,11 +1,11 @@
 <script lang="ts" setup></script>
 
 <template>
-  <header class="max-w-7xl mx-auto px-3 py-1">
+  <header class="max-w-7xl mx-auto py-1">
     <nav class="flex flex-row items-center justify-between mx-auto">
       <NuxtLink
         to="/"
-        class="flex text-5xl md:text-4xl font-bold"
+        class="flex text-3xl md:text-4xl font-bold"
         >JobGlimpse</NuxtLink
       >
       <div class="flex flex-row items-center gap-4">

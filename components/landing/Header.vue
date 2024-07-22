@@ -20,7 +20,7 @@ const menuitems = [
     <div class="flex w-full lg:w-auto items-center justify-between">
       <NuxtLink
         to="/"
-        class="flex items-center text-5xl md:text-4xl font-bold">
+        class="flex items-center text-3xl md:text-4xl font-bold">
         <span class="font-bold text-slate-800 dark:text-slate-400">Job</span>
 
         <span class="text-slate-500 dark:text-slate-200">Glimpse</span></NuxtLink

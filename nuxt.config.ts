@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
@@ -10,6 +11,7 @@ export default defineNuxtConfig({
   ],
 
   css: ['~/assets/index.css'],
+
   colorMode: {
     classSuffix: '',
   },
@@ -39,6 +41,7 @@ export default defineNuxtConfig({
       script: [{ src: 'https://upload-widget.cloudinary.com/global/all.js' }],
     },
   },
+
   runtimeConfig: {
     baseUrl: process.env.BASE_URL,
     public: {
@@ -60,4 +63,6 @@ export default defineNuxtConfig({
     '/jobs': { prerender: true },
     '/create': { prerender: true },
   },
+
+  compatibilityDate: '2024-07-22',
 })

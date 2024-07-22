@@ -15,7 +15,7 @@ const backgroundImage = computed(() =>
     :style="{
       background: `url(${backgroundImage})`,
     }">
-    <div class="p-4">
+    <div class="px-5 py-5">
       <TheHeader />
     </div>
 
