@@ -44,7 +44,7 @@ function tagClicked(value: string) {
         id="simple-search"
         class="bg-gray-50 border border-gray-300 text-gray-900 !rounded-l-lg !rounded-r-none !mb-0 focus:outline-none focus:border-slate-400 focus:border-2 focus:ring-slate-400 text-sm block h-[56px]"
         placeholder="Search"
-        v-model="searchTerm"
+        v-model.lazy="searchTerm"
         required />
       <button
         type="submit"

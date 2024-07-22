@@ -20,22 +20,27 @@
           <div class="flex items-center mt-2 space-x-2 text-gray-600 dark:text-slate-300">
             <Icon
               name="fa6-solid:location-dot"
-              class="text-gray-400 w-4 h-4" />
+              class="text-gray-400 size-4" />
 
             <span>1234 Sanfransico, CA 93063</span>
           </div>
           <div class="flex items-center mt-2 space-x-2 text-gray-600 dark:text-slate-300">
             <Icon
               name="fa6-solid:envelope"
-              class="text-gray-400 w-4 h-4" />
+              class="text-gray-400 size-4" />
 
-            <a href="mailto:hello@astroshipstarter.com"> jobglimpse@example.com </a>
+            <a href="jobglimpse@example.com"> jobglimpse@example.com </a>
           </div>
-          <div class="flex items-center mt-2 space-x-2 text-gray-600 dark:text-slate-300">
+          <div
+            class="flex items-center mt-2 space-x-2 text-gray-600 dark:text-slate-300 hover:text-slate-600">
             <Icon
               name="fa6-solid:phone"
-              class="text-gray-400 w-4 h-4" />
-            <a href="tel:+1 (987) 4587 899">+1 (123) 4587 899</a>
+              class="text-gray-400 size-4" />
+            <a
+              href="tel:+1 (987) 4587 899"
+              class=""
+              >+1 (123) 4587 899</a
+            >
           </div>
         </div>
       </div>

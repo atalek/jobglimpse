@@ -197,6 +197,7 @@ if (route.fullPath.includes('?canceled=1')) {
               name="job-title"
               type="text"
               placeholder="Junior Software Engineer"
+              class="text-black placeholder-slate-400 dark:placeholder-red-300"
               v-model="jobListingInfo.title" />
             <p
               v-if="validationErrors.title"
@@ -364,7 +365,7 @@ if (route.fullPath.includes('?canceled=1')) {
                   :disabled="isLoading"
                   name="salary-options"
                   id="salary-options"
-                  class="max-w-32 p-2.5 dark:bg-gray-600"
+                  class="max-w-32 p-2.5 dark:bg-gray-600 dark:text-white"
                   v-model="jobListingInfo.salaryOption">
                   <option
                     v-for="option in salaryOptions"
@@ -373,7 +374,7 @@ if (route.fullPath.includes('?canceled=1')) {
                     {{ option }}
                   </option>
                 </select>
-                <div class="flex items-center gap-2 mb-4 items-">
+                <div class="flex items-center gap-2 mb-4">
                   <div
                     class="flex w-full"
                     v-show="jobListingInfo.salaryOption === 'Range'">
@@ -415,7 +416,7 @@ if (route.fullPath.includes('?canceled=1')) {
                       :disabled="isLoading"
                       name="salary-period"
                       id="salary-period"
-                      class="w-28 p-2.5 text-center dark:bg-gray-600"
+                      class="w-28 p-2.5 text-center dark:bg-gray-600 dark:text-white"
                       v-model="jobListingInfo.salaryPeriod">
                       <option
                         v-for="option in periodOptions"
@@ -456,7 +457,7 @@ if (route.fullPath.includes('?canceled=1')) {
 
             <div
               class="flex items-center justify-between p-4 border rounded-md"
-              :class="{ 'bg-slate-200 dark:bg-slate-700': promoted }">
+              :class="{ 'bg-slate-100  dark:bg-slate-700': promoted }">
               <div class="flex items-center gap-2 mb-1">
                 <input
                   type="checkbox"

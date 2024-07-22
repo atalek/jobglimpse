@@ -36,7 +36,7 @@ function calculateTimeDifference(createdAt: string) {
 
 <template>
   <div
-    class="max-w-7xl mx-auto px-2 py-4 group hover:bg-slate-200 dark:hover:bg-slate-600">
+    class="max-w-7xl mx-auto px-2 py-4 group hover:bg-slate-200 dark:hover:bg-slate-600 transition">
     <div class="w-full flex flex-col md:flex-row justify-between">
       <NuxtLink
         :to="jobListing.url"

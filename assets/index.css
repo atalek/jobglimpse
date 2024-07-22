@@ -18,9 +18,9 @@ input[type='password'],
 input[type='tel'],
 input[type='text'],
 input[type='number'] {
-  @apply block w-full mb-1 rounded-md;
+  @apply block w-full mb-1 rounded-md text-black;
   @apply border p-2 border-gray-200;
-  @apply placeholder:text-gray-600 dark:placeholder:text-gray-900;
+  @apply placeholder-gray-400 dark:placeholder:text-gray-900;
 }
 input[type='email']:disabled,
 input[type='password']:disabled,

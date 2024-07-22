@@ -16,7 +16,7 @@
         type="text"
         placeholder="Full Name"
         required
-        class="!px-4 !py-3 !border-2 placeholder:text-gray-600 dark:placeholder:text-black rounded-md outline-none !focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+        class="!px-4 !py-3 !border-2 placeholder-gray-600 dark:placeholder-black rounded-md outline-none !focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
         name="name" />
     </div>
     <div class="mb-5">
@@ -31,7 +31,7 @@
         placeholder="Email Address"
         name="email"
         required
-        class="!px-4 !py-3 !border-2 placeholder:text-gray-600 dark:placeholder:text-black rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100" />
+        class="!px-4 !py-3 !border-2 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100" />
     </div>
     <div class="mb-3">
       <label
@@ -44,7 +44,7 @@
         name="message"
         required
         placeholder="Your Message"
-        class="px-4 py-3 border-2 placeholder:text-gray-600 dark:placeholder:text-black rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100 h-36"></textarea>
+        class="px-4 py-3 border-2 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100 h-36"></textarea>
     </div>
     <ButtonPrimary>Send Message</ButtonPrimary>
   </form>
