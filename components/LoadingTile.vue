@@ -3,13 +3,10 @@ defineProps<{ promoted?: boolean; numberOfPills: number }>()
 </script>
 
 <template>
-  <div
-    class="max-w-7xl mx-auto px-2 py-4 group hover:bg-slate-100 animate-pulse">
+  <div class="max-w-7xl mx-auto px-2 py-4 group hover:bg-slate-100 animate-pulse">
     <div class="w-full flex flex-col md:flex-row justify-between">
-      <div
-        class="flex flex-row items-start md:items-center max-w-[400px] w-full">
-        <div
-          class="relative flex-shrink-0 rounded-lg mt-2 border-2 size-16 bg-slate-300">
+      <div class="flex flex-row items-start md:items-center max-w-[400px] w-full">
+        <div class="relative flex-shrink-0 rounded-lg mt-2 border-2 size-16 bg-slate-300">
           <Icon
             v-if="promoted"
             name="fa6-solid:star"
@@ -23,7 +20,7 @@ defineProps<{ promoted?: boolean; numberOfPills: number }>()
               v-if="promoted"
               class="flex flex-wrap bg-slate-500 rounded-md h-5 w-24"></h5>
           </div>
-          <h6 class="bg-slate-200 rounded-md h-4 w-14"></h6>
+          <h5 class="bg-slate-200 rounded-md h-4 w-14"></h5>
         </div>
       </div>
 

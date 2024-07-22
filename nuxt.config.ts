@@ -6,9 +6,13 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxt/image',
     'nuxt-icon',
+    '@nuxtjs/color-mode',
   ],
 
   css: ['~/assets/index.css'],
+  colorMode: {
+    classSuffix: '',
+  },
 
   nitro: {
     compressPublicAssets: true,
@@ -53,7 +57,7 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/': { prerender: true },
-    '/jobs': { swr: 3600 },
+    '/jobs': { prerender: true },
     '/create': { prerender: true },
   },
 })

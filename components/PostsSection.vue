@@ -48,7 +48,7 @@ function tagClicked(value: string) {
         required />
       <button
         type="submit"
-        class="w-24 p-4 text-sm font-medium text-white bg-black rounded-r-lg hover:bg-slate-800"
+        class="w-24 p-4 text-sm font-medium bg-black text-white dark:bg-slate-600 dark:hover:bg-slate-800 rounded-r-lg hover:bg-slate-800"
         aria-label="Search">
         <Icon
           name="fa6-solid:magnifying-glass"

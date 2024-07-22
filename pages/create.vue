@@ -2,7 +2,6 @@
 import { ZodError } from 'zod'
 import VueMultiselect from 'vue-multiselect'
 import { jobListingSchema } from '~/data/jobListingSchema'
-import bgImage from '~/assets/images/bg-photo.webp'
 import { tagOptions } from '~/data/tagOptions'
 import type { JobListingType } from '~/data/types'
 import { useToast } from 'vue-toastification'
@@ -10,6 +9,16 @@ import { useToast } from 'vue-toastification'
 useSeoMeta({
   title: 'Create a job post - JobGlimpse',
 })
+
+import bgImageLight from '~/assets/images/bg-light2.webp'
+import bgImageDark from '~/assets/images/bg-dark2.webp'
+
+const colorMode = useColorMode()
+
+const backgroundImage = computed(() =>
+  colorMode.preference === 'light' ? bgImageLight : bgImageDark,
+)
+
 const toast = useToast()
 const route = useRoute()
 
@@ -116,7 +125,7 @@ declare global {
 
 let widget: any
 
-if (process.client) {
+if (import.meta.client) {
   widget = window.cloudinary.createUploadWidget(
     {
       cloud_name: config.cloudinaryName,
@@ -168,7 +177,7 @@ if (route.fullPath.includes('?canceled=1')) {
               :disabled="isLoading"
               @click="clearForm"
               type="button"
-              class="p-2 rounded-md w-24 text-lg bg-black text-white hover:bg-slate-800 text-center disabled:bg-slate-500 disabled:cursor-not-allowed">
+              class="p-2 rounded-md w-24 text-lg bg-black text-white dark:bg-slate-600 hover:bg-slate-800 dark:hover:bg-slate-800 text-center disabled:bg-slate-500 disabled:cursor-not-allowed">
               Reset
             </button>
           </div>
@@ -339,7 +348,7 @@ if (route.fullPath.includes('?canceled=1')) {
             <button
               :disabled="isLoading"
               type="button"
-              class="p-2 bg-gray-200 rounded-lg disabled:cursor-not-allowed"
+              class="p-2 bg-gray-200 dark:bg-gray-600 rounded-lg disabled:cursor-not-allowed"
               aria-label="Toggle salary options"
               @click="() => (isOpen = !isOpen)">
               <Icon
@@ -349,14 +358,13 @@ if (route.fullPath.includes('?canceled=1')) {
           </div>
           <Transition name="slide-fade">
             <div v-if="isOpen">
-              <div
-                :class="`${isOpen ? 'block ' : 'hidden'} flex flex-col gap-2 `">
+              <div :class="`${isOpen ? 'block ' : 'hidden'} flex flex-col gap-2 `">
                 <label for="salary-options">Rate</label>
                 <select
                   :disabled="isLoading"
                   name="salary-options"
                   id="salary-options"
-                  class="max-w-32 p-2.5"
+                  class="max-w-32 p-2.5 dark:bg-gray-600"
                   v-model="jobListingInfo.salaryOption">
                   <option
                     v-for="option in salaryOptions"
@@ -407,7 +415,7 @@ if (route.fullPath.includes('?canceled=1')) {
                       :disabled="isLoading"
                       name="salary-period"
                       id="salary-period"
-                      class="w-28 p-2.5 text-center"
+                      class="w-28 p-2.5 text-center dark:bg-gray-600"
                       v-model="jobListingInfo.salaryPeriod">
                       <option
                         v-for="option in periodOptions"
@@ -448,15 +456,15 @@ if (route.fullPath.includes('?canceled=1')) {
 
             <div
               class="flex items-center justify-between p-4 border rounded-md"
-              :class="{ 'bg-slate-100 border-gray-800': promoted }">
+              :class="{ 'bg-slate-200 dark:bg-slate-700': promoted }">
               <div class="flex items-center gap-2 mb-1">
                 <input
                   type="checkbox"
                   id="promoted"
                   v-model="promoted" />
                 <label for="promoted"
-                  >Promote your listing to the top of the page for one month to
-                  maximize exposure</label
+                  >Promote your listing to the top of the page for one month to maximize
+                  exposure</label
                 >
               </div>
               <span class="whitespace-nowrap">+ €15 </span>
@@ -477,46 +485,44 @@ if (route.fullPath.includes('?canceled=1')) {
     <section
       class="w-full h-screen lg:flex justify-center hidden bg-img overflow-hidden"
       :style="{
-        background: `url(${bgImage})`,
+        background: `url(${backgroundImage})`,
       }">
       <div class="flex flex-col pb-10 mt-20">
-        <h2 class="text-4xl font-bold text-center">
-          Connect Directly With Talent.
-        </h2>
-        <hr class="w-40 my-10 border-2 border-black" />
+        <h2 class="text-4xl font-bold text-center">Connect Directly With Talent.</h2>
+        <hr class="w-40 my-10 border-2 border-black dark:border-white" />
 
         <div class="flex items-center mb-2">
-          <span class="inline-block w-6 h-6 mr-4 text-blue-500"
-            ><IconsRocket
-          /></span>
-          <h3 class="text-xl font-bold text-gray-800">
+          <span class="inline-block w-6 h-6 mr-4"><IconsRocket /></span>
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-300">
             Simple and Straightforward:
           </h3>
         </div>
-        <p class="text-xl text-gray-700 mb-14">
+        <p class="text-xl text-gray-700 dark:text-gray-200 mb-14">
           Post your job in minutes, no registration required.
         </p>
 
         <div class="flex items-center mb-2">
           <span class="inline-block w-6 h-6 mr-4"><IconsHandshake /></span>
-          <h4 class="text-xl font-bold text-gray-800">Cost-Effective:</h4>
+          <h4 class="text-xl font-bold text-gray-800 dark:text-gray-300">
+            Cost-Effective:
+          </h4>
         </div>
-        <p class="text-xl text-gray-700 mb-14">
+        <p class="text-xl text-gray-700 mb-14 dark:text-gray-200">
           Reach local talent without breaking the bank.
         </p>
 
         <div class="flex items-center mb-2">
           <span class="inline-block w-6 h-6 mr-4"><IconsStar /></span>
-          <h5 class="text-xl font-bold text-gray-800">Amplify Your Reach:</h5>
+          <h5 class="text-xl font-bold text-gray-800 dark:text-gray-300">
+            Amplify Your Reach:
+          </h5>
         </div>
-        <p class="text-xl text-gray-700 mb-14">
+        <p class="text-xl text-gray-700 mb-14 dark:text-gray-200">
           Pay a little extra to skyrocket your post to the top for 30 days.
         </p>
 
         <h6 class="mt-16 text-2xl underline text-green-600">
-          <span class="inline-block w-6 h-6 mr-4 text-green-600"
-            ><IconsCheckmark
-          /></span>
+          <span class="inline-block w-6 h-6 mr-4 text-green-600"><IconsCheckmark /></span>
 
           Find Your Next Hiring Success.
         </h6>

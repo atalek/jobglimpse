@@ -9,7 +9,7 @@
     </p>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div
-        class="rounded-lg border-2 text-slate-950 shadow-sm bg-muted/50 drop-shadow-xl shadow-black/10">
+        class="rounded-lg border-2 shadow-sm bg-muted/50 drop-shadow-xl shadow-black/10">
         <div class="flex flex-col space-y-1.5 p-6">
           <h3
             class="text-2xl font-semibold leading-none tracking-tight grid gap-4 place-items-center">
@@ -18,13 +18,13 @@
           </h3>
         </div>
         <div class="p-6 pt-0">
-          <span class="font-bold">Effortless Job Posting:</span> Post your job
-          openings in minutes with our intuitive interface. No registration
-          required, get started hiring right away!
+          <span class="font-bold">Effortless Job Posting:</span> Post your job openings in
+          minutes with our intuitive interface. No registration required, get started
+          hiring right away!
         </div>
       </div>
       <div
-        class="rounded-lg border-2 text-slate-950 shadow-sm bg-muted/50 drop-shadow-xl shadow-black/10">
+        class="rounded-lg border-2 shadow-sm bg-muted/50 drop-shadow-xl shadow-black/10">
         <div class="flex flex-col space-y-1.5 p-6">
           <h3
             class="text-2xl font-semibold leading-none tracking-tight grid gap-4 place-items-center">
@@ -33,13 +33,13 @@
           </h3>
         </div>
         <div class="p-6 pt-0">
-          <span class="font-bold">Local Talent Pool:</span> Reach qualified
-          candidates in your area without breaking the bank. Easy Apply helps
-          you find the perfect fit for your team.
+          <span class="font-bold">Local Talent Pool:</span> Reach qualified candidates in
+          your area without breaking the bank. Easy Apply helps you find the perfect fit
+          for your team.
         </div>
       </div>
       <div
-        class="rounded-lg border-2 text-slate-950 shadow-sm bg-muted/50 drop-shadow-xl shadow-black/10">
+        class="rounded-lg border-2 shadow-sm bg-muted/50 drop-shadow-xl shadow-black/10">
         <div class="flex flex-col space-y-1.5 p-6">
           <h3
             class="text-2xl font-semibold leading-none tracking-tight grid gap-4 place-items-center">
@@ -49,9 +49,9 @@
           </h3>
         </div>
         <div class="p-6 pt-0">
-          <span class="font-bold">Boost Your Visibility:</span>Get your job
-          postings seen by more potential candidates. Stand out from the
-          competition and attract top talent.
+          <span class="font-bold">Boost Your Visibility:</span>Get your job postings seen
+          by more potential candidates. Stand out from the competition and attract top
+          talent.
         </div>
       </div>
     </div>

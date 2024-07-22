@@ -6,12 +6,11 @@ const currentYear = new Date().getFullYear()
     <div class="mx-auto max-w-screen-xl text-center">
       <a
         href="/#hero"
-        class="flex justify-center items-center text-3xl font-semibold text-gray-900">
+        class="flex justify-center items-center text-3xl font-semibold">
         JobGlimpse
       </a>
 
-      <ul
-        class="flex flex-wrap justify-center items-center mb-6 text-gray-900 my-8">
+      <ul class="flex flex-wrap justify-center items-center mb-6 my-8">
         <li>
           <a
             href="/#features"
@@ -52,7 +51,7 @@ const currentYear = new Date().getFullYear()
         <NuxtLink
           to="https://github.com/atalek/jobglimpse"
           target="_blank"
-          class="text-slate-800 md:text-lg flex items-center justify-center"
+          class="md:text-lg flex items-center justify-center"
           >© {{ currentYear }} JobGlimpse - Made by atalek<Icon
             name="fa6-brands:github"
             class="ml-1 size-5"

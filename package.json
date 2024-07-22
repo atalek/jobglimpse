@@ -15,16 +15,17 @@
   "devDependencies": {
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/google-fonts": "^3.2.0",
-    "@nuxtjs/tailwindcss": "^6.12.0",
-    "@types/better-sqlite3": "^7.6.10",
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@types/better-sqlite3": "^7.6.11",
     "drizzle-kit": "^0.20.18",
-    "nuxt": "^3.12.2",
+    "nuxt": "^3.12.4",
     "nuxt-icon": "^0.6.10",
-    "vue": "^3.4.29",
-    "vue-router": "^4.3.3"
+    "vue": "^3.4.33",
+    "vue-router": "^4.4.0"
   },
   "dependencies": {
     "@libsql/client": "0.4.0-pre.7",
+    "@nuxtjs/color-mode": "^3.4.2",
     "@vitejs/plugin-vue": "^5.0.5",
     "better-sqlite3": "^9.6.0",
     "drizzle-orm": "^0.29.5",

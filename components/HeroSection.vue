@@ -1,12 +1,19 @@
 <script lang="ts" setup>
-import bgImage from '~/assets/images/bg-photo.webp'
+import bgImageLight from '~/assets/images/bg-light.jpg'
+import bgImageDark from '~/assets/images/bg-dark.webp'
+
+const colorMode = useColorMode()
+
+const backgroundImage = computed(() =>
+  colorMode.preference === 'light' ? bgImageLight : bgImageDark,
+)
 </script>
 
 <template>
   <section
     class="mx-auto px-5 pb-16 md:px-10 bg-img"
     :style="{
-      background: `url(${bgImage})`,
+      background: `url(${backgroundImage})`,
     }">
     <div class="p-4">
       <TheHeader />
@@ -16,19 +23,17 @@ import bgImage from '~/assets/images/bg-photo.webp'
       <h1 class="mb-4 text-4xl font-bold md:text-7xl">
         Explore Opportunities Simplify Hiring
       </h1>
-      <h2 class="mx-auto max-w-lg text-sm text-slate-800 sm:text-xl mb-4">
+      <h2 class="mx-auto max-w-lg text-slate-800 dark:text-slate-200 sm:text-xl mb-4">
         JobGlimpse - Where Jobs Meet Simplicity.
       </h2>
       <h2
-        class="mx-auto mb-5 max-w-lg text-sm text-slate-800 sm:text-xl md:mb-6 lg:mb-8">
+        class="mx-auto mb-5 max-w-lg text-slate-800 dark:text-slate-200 sm:text-xl md:mb-6 lg:mb-8">
         Post and Find Jobs with Ease.
       </h2>
       <div class="flex items-stretch justify-center">
-        <NuxtLink
-          to="/create"
-          class="mx-auto inline-block rounded-md bg-black hover:bg-slate-800 px-8 py-4 text-center font-semibold text-white"
-          >Post a job</NuxtLink
-        >
+        <NuxtLink to="/create">
+          <ButtonPrimary>Post a job</ButtonPrimary>
+        </NuxtLink>
       </div>
     </div>
   </section>

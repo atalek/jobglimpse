@@ -9,7 +9,7 @@ const currentYear = new Date().getFullYear()
         <NuxtLink
           to="https://github.com/atalek/jobglimpse"
           target="_blank"
-          class="mt-8 text-slate-800 md:mt-0 md:text-lg"
+          class="mt-8 md:mt-0 md:text-lg"
           >© {{ currentYear }} JobGlimpse - Made by atalek
           <Icon
             name="fa6-brands:github"

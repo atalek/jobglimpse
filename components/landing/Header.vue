@@ -21,22 +21,23 @@ const menuitems = [
       <NuxtLink
         to="/"
         class="flex items-center text-5xl md:text-4xl font-bold">
-        <span class="font-bold text-slate-800">Job</span>
+        <span class="font-bold text-slate-800 dark:text-slate-400">Job</span>
 
-        <span class="text-slate-500">Glimpse</span></NuxtLink
+        <span class="text-slate-500 dark:text-slate-200">Glimpse</span></NuxtLink
       >
-      <div
-        class="block lg:hidden"
-        @click="isOpen = !isOpen">
-        <Icon
-          name="fa6-solid:bars"
-          class="size-6 text-gray-800 hover:text-gray-400 cursor-pointer"
-          v-if="!isOpen" />
+      <div class="flex lg:hidden flex-row">
+        <ThemeToggler />
+        <div @click="isOpen = !isOpen">
+          <Icon
+            name="fa6-solid:bars"
+            class="size-6 cursor-pointer"
+            v-if="!isOpen" />
 
-        <Icon
-          name="fa6-solid:xmark"
-          class="size-6 text-gray-800 hover:text-gray-400 cursor-pointer"
-          v-else />
+          <Icon
+            name="fa6-solid:xmark"
+            class="size-6 cursor-pointer"
+            v-else />
+        </div>
       </div>
     </div>
 
@@ -52,29 +53,35 @@ const menuitems = [
           :key="item.title">
           <NuxtLink
             :to="item.path"
-            class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-black text-center">
+            class="flex lg:px-3 py-2 items-center hover:text-slate-400 text-center transition">
             <span> {{ item.title }}</span>
           </NuxtLink>
         </li>
       </ul>
       <div class="lg:hidden flex items-center mt-3 gap-4">
         <NuxtLink
-          class="rounded text-center transition focus:outline-none focus-visible:ring-2 ring-offset-2 ring-gray-200 w-full px-4 py-2 bg-gray-300 hover:bg-gray-200 border-2 border-transparent"
-          href="/jobs"
-          >View jobs</NuxtLink
+          to="/jobs"
+          class="w-full"
+          ><ButtonSecondary>View jobs</ButtonSecondary></NuxtLink
         >
+
         <NuxtLink
-          class="rounded text-center transition focus:outline-none focus-visible:ring-2 ring-offset-2 ring-gray-200 w-full px-4 py-2 bg-black text-white hover:bg-gray-800 border-2 border-transparent"
           to="/create"
-          >Post a job</NuxtLink
+          class="w-full"
+          ><ButtonPrimary>Post a job</ButtonPrimary></NuxtLink
         >
       </div>
     </div>
     <div>
-      <div class="hidden lg:flex items-center gap-4 hover:text-gray-600">
-        <NuxtLink href="/jobs">View Jobs</NuxtLink>
+      <div class="hidden lg:flex items-center gap-4">
+        <ThemeToggler />
         <NuxtLink
-          class="font-inter rounded-lg hidden md:block bg-black px-8 py-2 text-center text-white hover:bg-gray-800"
+          href="/jobs"
+          class="hover:text-slate-400"
+          >View Jobs</NuxtLink
+        >
+        <NuxtLink
+          class="font-inter rounded-lg hidden md:block bg-black dark:bg-white text-white dark:text-black dark:hover:bg-slate-200 px-8 py-2 text-center hover:bg-gray-800"
           href="/create"
           >Post a job</NuxtLink
         >

@@ -16,7 +16,7 @@
         type="text"
         placeholder="Full Name"
         required
-        class="!px-4 !py-3 !border-2 placeholder:text-gray-800 rounded-md outline-none !focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+        class="!px-4 !py-3 !border-2 placeholder:text-gray-600 dark:placeholder:text-black rounded-md outline-none !focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
         name="name" />
     </div>
     <div class="mb-5">
@@ -31,7 +31,7 @@
         placeholder="Email Address"
         name="email"
         required
-        class="!px-4 !py-3 !border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100" />
+        class="!px-4 !py-3 !border-2 placeholder:text-gray-600 dark:placeholder:text-black rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100" />
     </div>
     <div class="mb-3">
       <label
@@ -44,12 +44,8 @@
         name="message"
         required
         placeholder="Your Message"
-        class="px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100 h-36"></textarea>
+        class="px-4 py-3 border-2 placeholder:text-gray-600 dark:placeholder:text-black rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100 h-36"></textarea>
     </div>
-    <button
-      class="rounded text-center transition focus:outline-none focus-visible:ring-2 ring-offset-2 ring-gray-200 w-full px-6 py-3 bg-black text-white hover:bg-slate-900 border-2 border-transparent"
-      type="submit">
-      Send Message
-    </button>
+    <ButtonPrimary>Send Message</ButtonPrimary>
   </form>
 </template>

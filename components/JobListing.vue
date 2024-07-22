@@ -28,16 +28,15 @@ function calculateTimeDifference(createdAt: string) {
   } else if (hours >= 1) {
     return hours === 1 ? '1 hour ago' : `${hours} hours ago`
   } else {
-    const minutes = Math.floor(
-      Math.abs(moment.duration(difference).asMinutes()) % 60,
-    )
+    const minutes = Math.floor(Math.abs(moment.duration(difference).asMinutes()) % 60)
     return minutes === 1 ? '1 minute ago' : `${minutes} minutes ago`
   }
 }
 </script>
 
 <template>
-  <div class="max-w-7xl mx-auto px-2 py-4 group hover:bg-slate-200">
+  <div
+    class="max-w-7xl mx-auto px-2 py-4 group hover:bg-slate-200 dark:hover:bg-slate-600">
     <div class="w-full flex flex-col md:flex-row justify-between">
       <NuxtLink
         :to="jobListing.url"
@@ -60,36 +59,33 @@ function calculateTimeDifference(createdAt: string) {
             class="text-white absolute bottom-0 left-1/2 transform -translate-x-1/2 border-2 bg-yellow-400 rounded-md h-6 w-6 p-1" />
         </div>
         <div class="ml-4 flex flex-col max-w-md">
-          <h3 class="text-slate-600 text-sm">{{ jobListing.companyName }}</h3>
+          <h3 class="text-slate-600 dark:text-slate-400 text-sm">
+            {{ jobListing.companyName }}
+          </h3>
           <h4 class="font-semibold flex flex-wrap">
             {{ jobListing.title }}
             <span
               v-show="jobListing.promoted === 1"
-              class="ml-1 md:ml-2 p-0.5 bg-yellow-400 rounded-md">
+              class="ml-1 md:ml-2 p-0.5 bg-yellow-400 text-black rounded-md">
               Featured</span
             >
           </h4>
           <h5>
             {{ jobListing.location }}
             <span
-              v-show="
-                jobListing.salaryOptions === 'Exact Rate' && jobListing.salary
-              "
+              v-show="jobListing.salaryOptions === 'Exact Rate' && jobListing.salary"
               class="font-md font-bold ml-1">
               €{{ jobListing.salary }} / month</span
             >
 
             <span
               v-show="
-                (jobListing.salaryOptions === 'Range' &&
-                  jobListing.salaryMin) ||
+                (jobListing.salaryOptions === 'Range' && jobListing.salaryMin) ||
                 jobListing.salaryMax
               "
               class="font-md font-bold ml-1">
               €{{ jobListing.salaryMin }} - {{ jobListing.salaryMax }} /
-              {{
-                jobListing.salaryPeriod === 'Monthly' ? 'month' : 'hour'
-              }}</span
+              {{ jobListing.salaryPeriod === 'Monthly' ? 'month' : 'hour' }}</span
             >
           </h5>
         </div>
@@ -100,7 +96,7 @@ function calculateTimeDifference(createdAt: string) {
         <span
           v-for="tag in jobListing.tags.split(',')"
           :key="tag"
-          class="p-1 rounded-md bg-slate-200 cursor-pointer hover:bg-slate-400 flex items-center capitalize group-hover:bg-slate-500 group-hover:hover:bg-slate-700 group-hover:text-slate-100"
+          class="p-1 rounded-md bg-slate-200 dark:bg-slate-700 cursor-pointer flex items-center capitalize hover:bg-slate-400 group-hover:bg-slate-500 group-hover:hover:bg-slate-700 group-hover:text-slate-100"
           @click="emits('tagClicked', tag)">
           {{ tag }}</span
         >
