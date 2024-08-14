@@ -197,7 +197,7 @@ if (route.fullPath.includes('?canceled=1')) {
               name="job-title"
               type="text"
               placeholder="Junior Software Engineer"
-              class="text-black placeholder-slate-400 dark:placeholder-red-300"
+              class="text-black"
               v-model="jobListingInfo.title" />
             <p
               v-if="validationErrors.title"

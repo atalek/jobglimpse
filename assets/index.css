@@ -20,7 +20,7 @@ input[type='text'],
 input[type='number'] {
   @apply block w-full mb-1 rounded-md text-black;
   @apply border p-2 border-gray-200;
-  @apply placeholder-gray-400 dark:placeholder:text-gray-900;
+  @apply placeholder-gray-500;
 }
 input[type='email']:disabled,
 input[type='password']:disabled,
