@@ -38,7 +38,9 @@ export default defineNuxtConfig({
       },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      script: [{ src: 'https://upload-widget.cloudinary.com/global/all.js' }],
+      script: [
+        { src: 'https://upload-widget.cloudinary.com/global/all.js', defer: true },
+      ],
     },
   },
 

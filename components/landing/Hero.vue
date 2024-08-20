@@ -45,7 +45,9 @@
         size="100vw sm:50vw"
         height="440"
         width="620"
-        loading="eager" />
+        loading="eager"
+        preload
+        fetchPriority="high" />
     </div>
   </section>
 </template>
