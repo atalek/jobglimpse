@@ -36,7 +36,7 @@ function calculateTimeDifference(createdAt: string) {
 
 <template>
   <div
-    class="max-w-7xl mx-auto px-2 py-4 group hover:bg-slate-200 dark:hover:bg-slate-600 transition">
+    class="max-w-7xl mx-auto px-2 py-4 group hover:bg-slate-200 dark:hover:bg-slate-700 transition">
     <div class="w-full flex flex-col md:flex-row justify-between">
       <NuxtLink
         :to="jobListing.url"
@@ -96,7 +96,7 @@ function calculateTimeDifference(createdAt: string) {
         <span
           v-for="tag in jobListing.tags.split(',')"
           :key="tag"
-          class="p-1 rounded-md bg-slate-200 dark:bg-slate-700 cursor-pointer flex items-center capitalize hover:bg-slate-400 group-hover:bg-slate-500 group-hover:hover:bg-slate-700 group-hover:text-slate-100"
+          class="p-1 rounded-md bg-slate-200 dark:bg-slate-600 cursor-pointer flex items-center capitalize hover:bg-slate-400 group-hover:bg-slate-600 group-hover:hover:bg-slate-800 group-hover:text-slate-100"
           @click="emits('tagClicked', tag)">
           {{ tag }}</span
         >
@@ -109,9 +109,8 @@ function calculateTimeDifference(createdAt: string) {
         class="flex items-center md:justify-end justify-center mt-2 ml-2 md:mt-0 md:invisible md:group-hover:visible">
         <NuxtLink
           :to="jobListing.url"
-          target="_blank"
-          class="p-2 rounded-md w-24 text-lg bg-black text-white hover:bg-slate-800 text-center">
-          Apply
+          target="_blank">
+          <ButtonPrimary> Apply </ButtonPrimary>
         </NuxtLink>
       </div>
     </div>

@@ -57,7 +57,6 @@ function tagClicked(value: string) {
     </div>
   </section>
   <div class="mb-12 md:mb-24" />
-
   <div
     class="divide-y-2"
     v-if="jobListings && jobListings.length > 0">

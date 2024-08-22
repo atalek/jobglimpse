@@ -33,13 +33,13 @@ defineProps<{ promoted?: boolean; numberOfPills: number }>()
       </div>
       <div
         class="flex items-center justify-center mt-3 md:mt-0 md:w-full md:max-w-[90px]">
-        <span class="h-8 w-24 bg-slate-400 rounded-md"></span>
+        <span class="h-6 w-24 bg-slate-400 rounded-md"></span>
       </div>
       <div
         class="flex items-center md:justify-end justify-center mt-2 ml-2 md:mt-0 md:invisible md:group-hover:visible">
         <span
           target="_blank"
-          class="p-2 rounded-md w-24 h-11 bg-slate-500">
+          class="p-2 rounded-md w-20 h-11 bg-slate-500">
         </span>
       </div>
     </div>

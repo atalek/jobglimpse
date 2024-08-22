@@ -40,14 +40,13 @@
     <div class="mt-24 lg:mt-0 md:order-1">
       <NuxtImg
         provider="cloudinary"
-        src="/ykhz1qagqab070gjxluz.webp"
+        src="ykhz1qagqab070gjxluz.webp"
         alt="job board hero image"
-        size="100vw sm:50vw"
-        height="440"
-        width="620"
-        loading="eager"
-        preload
-        fetchPriority="high" />
+        sizes="sm:355px md:480px lg:640px"
+        width="640"
+        height="480"
+        densities="1x 2x"
+        preload />
     </div>
   </section>
 </template>
