@@ -4,13 +4,22 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/google-fonts',
     '@nuxt/image',
     'nuxt-icon',
     '@nuxtjs/color-mode',
+    '@nuxt/fonts',
   ],
 
-  css: ['~/assets/index.css'],
+  hooks: {
+    'build:manifest': manifest => {
+      const css = manifest['node_modules/nuxt/dist/app/entry.js']?.css
+      if (css) {
+        for (let i = css.length - 1; i >= 0; i--) {
+          if (css[i].startsWith('entry')) css.splice(i, 1)
+        }
+      }
+    },
+  },
 
   colorMode: {
     classSuffix: '',
@@ -27,10 +36,6 @@ export default defineNuxtConfig({
     transpile: ['vue-toastification'],
   },
 
-  googleFonts: {
-    families: { Roboto: [400, 500, 700, 900] },
-  },
-
   app: {
     head: {
       htmlAttrs: {
@@ -39,7 +44,11 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       script: [
-        { src: 'https://upload-widget.cloudinary.com/global/all.js', defer: true },
+        {
+          src: 'https://upload-widget.cloudinary.com/global/all.js',
+          defer: true,
+          fetchpriority: 'low',
+        },
       ],
     },
   },

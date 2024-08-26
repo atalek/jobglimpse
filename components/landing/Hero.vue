@@ -46,7 +46,7 @@
         width="640"
         height="480"
         densities="1x 2x"
-        preload />
+        fetchpriority="high" />
     </div>
   </section>
 </template>

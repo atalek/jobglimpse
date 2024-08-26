@@ -15,6 +15,8 @@ export default defineNuxtPlugin(nuxtApp => {
       {
         src: `https://www.googletagmanager.com/gtag/js?id=${gtagId}`,
         defer: true,
+        fetchpriority: 'low',
+        tagPriority: 'low',
       },
     ],
   })

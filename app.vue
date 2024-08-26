@@ -55,6 +55,11 @@ useHead({
 <template>
   <div>
     <NuxtLoadingIndicator />
+    <NuxtRouteAnnouncer />
     <NuxtPage />
   </div>
 </template>
+
+<style>
+@import '@/assets/index.css';
+</style>
