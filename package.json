@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "jobglimpse",
   "private": true,
   "type": "module",
   "scripts": {
@@ -14,19 +14,19 @@
   },
   "devDependencies": {
     "@nuxt/fonts": "^0.7.2",
-    "@nuxt/image": "^1.7.0",
-    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@nuxt/image": "^1.8.1",
+    "@nuxtjs/tailwindcss": "^6.12.2",
     "@types/better-sqlite3": "^7.6.11",
     "drizzle-kit": "^0.20.18",
-    "nuxt": "^3.13.0",
+    "nuxt": "^3.14.159",
     "nuxt-icon": "^0.6.10",
-    "vue": "^3.4.38",
-    "vue-router": "^4.4.3"
+    "vue": "^3.5.13",
+    "vue-router": "^4.4.5"
   },
   "dependencies": {
     "@libsql/client": "0.4.0-pre.7",
-    "@nuxtjs/color-mode": "^3.4.4",
-    "@vitejs/plugin-vue": "^5.1.2",
+    "@nuxtjs/color-mode": "^3.5.2",
+    "@vitejs/plugin-vue": "^5.2.0",
     "better-sqlite3": "^9.6.0",
     "drizzle-orm": "^0.29.5",
     "moment": "^2.30.1",
